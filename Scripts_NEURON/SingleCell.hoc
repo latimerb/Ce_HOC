@@ -1,0 +1,32 @@
+{load_file("nrngui.hoc")}
+{load_file("function_BgGen.hoc")}
+{load_file("CE_template.hoc")}
+{load_file("graphics_lib.hoc")}
+
+//objref soma
+
+objref Cell, Cell1
+Cell = new LowthresholdBursting_CeL_PKCDm(1)
+//Cell = new LateFiring_CeL_PKCDm(1)
+
+objectvar stim
+Cell.soma stim = new IClamp(0.5) //creating current clamp in the middle of the soma
+stim.del = 200 // in ms
+stim.dur = 500 // in ms
+stim.amp = 0 // in nA
+tstop = 1000 // in ms
+
+nrnpointmenu(stim)
+nrncontrolmenu()
+nrnsecmenu(.5,1)
+access Cell.apicaldend
+nrnsecmenu(.5,1)
+access Cell.basaldend
+nrnsecmenu(.5,1)
+v_init = -82
+
+Plot1V("Cell")
+//Plot2V("Cell")
+//Plot3V("Cell")
+
+init()

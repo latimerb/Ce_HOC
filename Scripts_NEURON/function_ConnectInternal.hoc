@@ -1,0 +1,38 @@
+objref InternalSynMatrix,InternalThrMatrix,InternalWgtMatrix,InternalDelMatrix
+InternalSynMatrix = new Matrix()
+InternalThrMatrix = new Matrix()
+InternalWgtMatrix = new Matrix()
+InternalDelMatrix = new Matrix()
+
+InternalSynMatrix = LoadMatrix(FileLocationStr_InternalSynConns,TotalCellNum,TotalCellNum)
+InternalThrMatrix = LoadMatrix(FileLocationStr_InternalThrConns,TotalCellNum,TotalCellNum)
+InternalWgtMatrix = LoadMatrix(FileLocationStr_InternalWgtConns,TotalCellNum,TotalCellNum)
+InternalDelMatrix = LoadMatrix(FileLocationStr_InternalDelConns,TotalCellNum,TotalCellNum)
+
+objref InternalsynList,InternalncList,fih
+InternalsynList = new List()
+InternalncList = new List()
+
+proc ConnectInternal() { local i,j,cellgid,inputid,synid,thr,wgt,del
+	{pc.barrier()}
+	for j = 0,CellNum-1 {
+		cellgid = CellList.o(j).mygid
+		for i = 0,TotalCellNum-1 {
+			inputid = i
+			synid = InternalSynMatrix.x[inputid][cellgid]
+			if (synid != 0) {
+				//printf("The cell #%d gets input from Cell #%d with synid #%d!\n",cellgid,inputid,synid)
+				thr = InternalThrMatrix.x[inputid][cellgid]
+				wgt = InternalWgtMatrix.x[inputid][cellgid]
+				del = InternalDelMatrix.x[inputid][cellgid]
+				//printf("%f,%f,%f\n",thr,wgt,del)
+				if (del<dt) {
+					print del
+				}
+				ConnectTwoCells(inputid,cellgid,synid,wgt,del,thr,InternalsynList,InternalncList)
+			}
+		}
+	}
+	print "Internal Connections Complete"
+	{pc.barrier()}
+}

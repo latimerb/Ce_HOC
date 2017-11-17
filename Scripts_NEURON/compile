@@ -1,0 +1,8 @@
+#!/bin/sh
+
+#SBATCH -p RC
+#SBATCH -J Compile
+#SBATCH -o Comp_Results-%j.out
+#SBATCH -n 1
+
+mpirun nrnivmodl

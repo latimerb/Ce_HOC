@@ -1,0 +1,1529 @@
+Starting CE HOC Model at Fri Nov 10 11:14:24 CST 2017
+
+Currently Loaded Modules:
+  1) intel/17.0.4   3) git/2.9.0       5) python/2.7.13   7) TACC
+  2) impi/17.0.3    4) autotools/1.1   6) xalt/1.7.7
+
+ 
+
+/work/05300/latimerb/stampede2/CE_Model/Scripts_NEURON
+BAer2CeLPKCDm.mod BAer2CeLPKCDp.mod BAer2CeM.mod BAf2CeLPKCDm.mod BAf2CeLPKCDp.mod BAf2CeM.mod BAnor2CeLPKCDm.mod BAnor2CeLPKCDp.mod BAnor2CeM.mod CE_cal.mod CE_capool.mod CE_cat.mod CE_ia.mod CE_ih.mod CE_Ihva.mod CE_im.mod CE_kdr.mod CE_leak.mod CeLPKCDm2CeLPKCDm.mod CeLPKCDm2CeLPKCDp.mod CeLPKCDm2CeM.mod CeLPKCDp2CeLPKCDm.mod CeLPKCDp2CeLPKCDp.mod CeLPKCDp2CeM.mod CeM2CeM.mod CE_na.mod CE_sahp.mod currentclamp.mod function_TMonitor.mod ITCd2CeLPKCDm.mod ITCd2CeLPKCDp.mod ITCv2CeM.mod LAer2CeLPKCDm.mod LAer2CeLPKCDp.mod LAer2CeM.mod LAf2CeLPKCDm.mod LAf2CeLPKCDp.mod LAf2CeM.mod LAnor2CeLPKCDm.mod LAnor2CeLPKCDp.mod LAnor2CeM.mod PVT2CeLPKCDm.mod PVT2CeLPKCDp.mod shock.mod
+BAer2CeLPKCDm.mod BAer2CeLPKCDp.mod BAer2CeM.mod BAf2CeLPKCDm.mod BAf2CeLPKCDp.mod BAf2CeM.mod BAnor2CeLPKCDm.mod BAnor2CeLPKCDp.mod BAnor2CeM.mod CE_cal.mod CE_capool.mod CE_cat.mod CE_ia.mod CE_ih.mod CE_Ihva.mod CE_im.mod CE_kdr.mod CE_leak.mod CeLPKCDm2CeLPKCDm.mod CeLPKCDm2CeLPKCDp.mod CeLPKCDm2CeM.mod CeLPKCDp2CeLPKCDm.mod CeLPKCDp2CeLPKCDp.mod CeLPKCDp2CeM.mod CeM2CeM.mod CE_na.mod CE_sahp.mod currentclamp.mod function_TMonitor.mod ITCd2CeLPKCDm.mod ITCd2CeLPKCDp.mod ITCv2CeM.mod LAer2CeLPKCDm.mod LAer2CeLPKCDp.mod LAer2CeM.mod LAf2CeLPKCDm.mod LAf2CeLPKCDp.mod LAf2CeM.mod LAnor2CeLPKCDm.mod LAnor2CeLPKCDp.mod LAnor2CeM.mod PVT2CeLPKCDm.mod PVT2CeLPKCDp.mod shock.mod
+"/work/05300/latimerb/stampede2/neuron/nrn/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/work/05300/latimerb/stampede2/neuron/nrn/include/nrn" -I"/work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib"      -g -O2 -c -o mod_func.lo mod_func.c
+libtool: compile:  mpicc -DHAVE_CONFIG_H -I. -I.. -I/work/05300/latimerb/stampede2/neuron/nrn/include/nrn -I/work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib -g -O2 -c mod_func.c  -fPIC -DPIC -o .libs/mod_func.o
+"/work/05300/latimerb/stampede2/neuron/nrn/share/nrn/libtool" --tag=CC --mode=link mpicc -module  -g -O2    -o libnrnmech.la -rpath "/work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib"  BAer2CeLPKCDm.lo BAer2CeLPKCDp.lo BAer2CeM.lo BAf2CeLPKCDm.lo BAf2CeLPKCDp.lo BAf2CeM.lo BAnor2CeLPKCDm.lo BAnor2CeLPKCDp.lo BAnor2CeM.lo CE_cal.lo CE_capool.lo CE_cat.lo CE_ia.lo CE_ih.lo CE_Ihva.lo CE_im.lo CE_kdr.lo CE_leak.lo CeLPKCDm2CeLPKCDm.lo CeLPKCDm2CeLPKCDp.lo CeLPKCDm2CeM.lo CeLPKCDp2CeLPKCDm.lo CeLPKCDp2CeLPKCDp.lo CeLPKCDp2CeM.lo CeM2CeM.lo CE_na.lo CE_sahp.lo currentclamp.lo function_TMonitor.lo ITCd2CeLPKCDm.lo ITCd2CeLPKCDp.lo ITCv2CeM.lo LAer2CeLPKCDm.lo LAer2CeLPKCDp.lo LAer2CeM.lo LAf2CeLPKCDm.lo LAf2CeLPKCDp.lo LAf2CeM.lo LAnor2CeLPKCDm.lo LAnor2CeLPKCDp.lo LAnor2CeM.lo PVT2CeLPKCDm.lo PVT2CeLPKCDp.lo shock.lo mod_func.lo  -L"/work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib" -lnrnoc -loc -lmemacs -lnrnmpi -lscopmath -lsparse13 -lreadline -lncurses -L"/work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib" "/work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libnrniv.la" -livoc -lneuron_gnu -lmeschach -lsundials       -lm -ldl
+libtool: link: rm -fr  .libs/libnrnmech.la .libs/libnrnmech.lai .libs/libnrnmech.so .libs/libnrnmech.so.0 .libs/libnrnmech.so.0.0.0
+libtool: link: mpicc -shared  -fPIC -DPIC  .libs/BAer2CeLPKCDm.o .libs/BAer2CeLPKCDp.o .libs/BAer2CeM.o .libs/BAf2CeLPKCDm.o .libs/BAf2CeLPKCDp.o .libs/BAf2CeM.o .libs/BAnor2CeLPKCDm.o .libs/BAnor2CeLPKCDp.o .libs/BAnor2CeM.o .libs/CE_cal.o .libs/CE_capool.o .libs/CE_cat.o .libs/CE_ia.o .libs/CE_ih.o .libs/CE_Ihva.o .libs/CE_im.o .libs/CE_kdr.o .libs/CE_leak.o .libs/CeLPKCDm2CeLPKCDm.o .libs/CeLPKCDm2CeLPKCDp.o .libs/CeLPKCDm2CeM.o .libs/CeLPKCDp2CeLPKCDm.o .libs/CeLPKCDp2CeLPKCDp.o .libs/CeLPKCDp2CeM.o .libs/CeM2CeM.o .libs/CE_na.o .libs/CE_sahp.o .libs/currentclamp.o .libs/function_TMonitor.o .libs/ITCd2CeLPKCDm.o .libs/ITCd2CeLPKCDp.o .libs/ITCv2CeM.o .libs/LAer2CeLPKCDm.o .libs/LAer2CeLPKCDp.o .libs/LAer2CeM.o .libs/LAf2CeLPKCDm.o .libs/LAf2CeLPKCDp.o .libs/LAf2CeM.o .libs/LAnor2CeLPKCDm.o .libs/LAnor2CeLPKCDp.o .libs/LAnor2CeM.o .libs/PVT2CeLPKCDm.o .libs/PVT2CeLPKCDp.o .libs/shock.o .libs/mod_func.o   -Wl,-rpath -Wl,/work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib -Wl,-rpath -Wl,/work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib -L/work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libnrnoc.so /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/liboc.so /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libmemacs.so /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libnrnmpi.so /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libscopmath.so /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libsparse13.so -lreadline -lncurses /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libnrniv.so /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libivoc.so /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libneuron_gnu.so /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libmeschach.so /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libsundials.so -lm -ldl  -g -O2   -Wl,-soname -Wl,libnrnmech.so.0 -o .libs/libnrnmech.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "libnrnmech.so.0" && ln -s "libnrnmech.so.0.0.0" "libnrnmech.so.0")
+libtool: link: (cd ".libs" && rm -f "libnrnmech.so" && ln -s "libnrnmech.so.0.0.0" "libnrnmech.so")
+libtool: link: ( cd ".libs" && rm -f "libnrnmech.la" && ln -s "../libnrnmech.la" "libnrnmech.la" )
+Successfully created x86_64/special
+Main CE HOC file starting at Fri Nov 10 11:14:40 CST 2017
+numprocs=200
+NEURON -- VERSION 7.5 master (6b4c19f) 2017-09-25
+Duke, Yale, and the BlueBrain Project -- Copyright 1984-2016
+See http://neuron.yale.edu/neuron/credits
+
+Additional mechanisms from files
+ BAer2CeLPKCDm.mod BAer2CeLPKCDp.mod BAer2CeM.mod BAf2CeLPKCDm.mod BAf2CeLPKCDp.mod BAf2CeM.mod BAnor2CeLPKCDm.mod BAnor2CeLPKCDp.mod BAnor2CeM.mod CE_cal.mod CE_capool.mod CE_cat.mod CE_ia.mod CE_ih.mod CE_Ihva.mod CE_im.mod CE_kdr.mod CE_leak.mod CeLPKCDm2CeLPKCDm.mod CeLPKCDm2CeLPKCDp.mod CeLPKCDm2CeM.mod CeLPKCDp2CeLPKCDm.mod CeLPKCDp2CeLPKCDp.mod CeLPKCDp2CeM.mod CeM2CeM.mod CE_na.mod CE_sahp.mod currentclamp.mod function_TMonitor.mod ITCd2CeLPKCDm.mod ITCd2CeLPKCDp.mod ITCv2CeM.mod LAer2CeLPKCDm.mod LAer2CeLPKCDp.mod LAer2CeM.mod LAf2CeLPKCDm.mod LAf2CeLPKCDp.mod LAf2CeM.mod LAnor2CeLPKCDm.mod LAnor2CeLPKCDp.mod LAnor2CeM.mod PVT2CeLPKCDm.mod PVT2CeLPKCDp.mod shock.mod
+	1 	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+		1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+																			1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+	1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+	1 
+	1 
+	1 
+	1 
+		1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	137 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+		1 
+		137 
+		137 
+		137 
+		137 
+		137 
+		1 
+		137 
+		137 
+		137 
+		137 
+		137 
+		137 
+		137 
+		137 
+		137 
+		137 
+			1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+																				1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+			1 	1 
+
+1 
+1 
+			1 	1 
+1 
+1 
+	1 	1 
+
+	1 
+
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 	1 
+		1 
+		1 
+
+	1 
+137 
+	1 
+	137 
+	1 
+		1 
+137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	137 
+	1 
+137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+			137 
+	137 
+		137 
+137 
+	137 
+	137 
+137 
+	137 
+	137 
+	137 
+	137 
+	137 
+137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	137 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	1 
+	1 
+	137 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+
+	1 
+	137 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+		137 
+137 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	1 
+	137 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	1 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	1 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+		1 
+	137 
+	1 
+	1 
+	137 
+	1 
+	1 
+	1 	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	1 
+	1 
+	137 
+	1 
+	1 
+	137 
+	1 
+
+137 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 	137 
+	137 
+
+	137 
+	137 
+	137 
+		137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+137 
+	137 
+	137 
+	137 
+		137 
+	137 
+	137 
+			137 
+	137 
+	137 
+	137 
+137 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+137 
+	1 
+	137 
+	1 
+	137 
+	1 
+137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+		137 
+137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	1 
+	1 
+	137 
+	1 
+		1 
+	1 
+	1 
+	1 
+	1 
+1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+		137 
+		137 
+	137 
+	137 
+	137 
+	137 
+137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+137 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 	1 
+	1 
+	1 
+
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	137 	137 
+	137 
+	137 
+	137 
+	137 
+
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	1 
+	1 
+	137 
+	1 
+	137 
+	137 
+	137 
+	1 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+		137 
+	137 
+	137 
+	137 
+137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	1 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	137 
+	1 
+	1 
+	137 
+	1 
+	137 
+	1 
+	1 
+	1 
+		1 
+137 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+		137 
+	1 
+	137 1 
+	137 
+	137 
+		137 
+
+	137 
+137 
+	137 
+	1 
+	137 
+	1 
+	137 	137 
+
+	1 	137 
+
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	137 
+	137 
+	1 
+	1 
+		137 
+137 
+	137 
+	137 
+	137 
+	137 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections CompleteInternal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections CompleteInternal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+0.000000 percent is done!
+1.000000 percent is done!
+2.000000 percent is done!
+3.000000 percent is done!
+4.000000 percent is done!
+5.000000 percent is done!
+6.000000 percent is done!
+7.000000 percent is done!
+8.000000 percent is done!
+9.000000 percent is done!
+10.000000 percent is done!
+11.000000 percent is done!
+12.000000 percent is done!
+13.000000 percent is done!
+14.000000 percent is done!
+15.000000 percent is done!
+16.000000 percent is done!
+17.000000 percent is done!
+18.000000 percent is done!
+19.000000 percent is done!
+20.000000 percent is done!
+21.000000 percent is done!
+22.000000 percent is done!
+23.000000 percent is done!
+24.000000 percent is done!
+25.000000 percent is done!
+26.000000 percent is done!
+27.000000 percent is done!
+28.000000 percent is done!
+29.000000 percent is done!
+30.000000 percent is done!
+31.000000 percent is done!
+32.000000 percent is done!
+33.000000 percent is done!
+34.000000 percent is done!
+35.000000 percent is done!
+36.000000 percent is done!
+37.000000 percent is done!
+38.000000 percent is done!
+39.000000 percent is done!
+40.000000 percent is done!
+41.000000 percent is done!
+42.000000 percent is done!
+43.000000 percent is done!
+44.000000 percent is done!
+45.000000 percent is done!
+46.000000 percent is done!
+47.000000 percent is done!
+48.000000 percent is done!
+49.000000 percent is done!
+50.000000 percent is done!
+51.000000 percent is done!
+52.000000 percent is done!
+53.000000 percent is done!
+54.000000 percent is done!
+55.000000 percent is done!
+56.000000 percent is done!
+57.000000 percent is done!
+58.000000 percent is done!
+59.000000 percent is done!
+60.000000 percent is done!
+61.000000 percent is done!
+62.000000 percent is done!
+63.000000 percent is done!
+64.000000 percent is done!
+65.000000 percent is done!
+66.000000 percent is done!
+67.000000 percent is done!
+68.000000 percent is done!
+69.000000 percent is done!
+70.000000 percent is done!
+71.000000 percent is done!
+72.000000 percent is done!
+73.000000 percent is done!
+74.000000 percent is done!
+75.000000 percent is done!
+76.000000 percent is done!
+77.000000 percent is done!
+78.000000 percent is done!
+79.000000 percent is done!
+80.000000 percent is done!
+81.000000 percent is done!
+82.000000 percent is done!
+83.000000 percent is done!
+84.000000 percent is done!
+85.000000 percent is done!
+86.000000 percent is done!
+87.000000 percent is done!
+88.000000 percent is done!
+89.000000 percent is done!
+90.000000 percent is done!
+91.000000 percent is done!
+92.000000 percent is done!
+93.000000 percent is done!
+94.000000 percent is done!
+95.000000 percent is done!
+96.000000 percent is done!
+97.000000 percent is done!
+98.000000 percent is done!
+99.000000 percent is done!
+100.000000 percent is done!
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...
+Simulation complete! Please wait for writing data files...

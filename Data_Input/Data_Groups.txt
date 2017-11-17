@@ -1,0 +1,3 @@
+	0	CeM	260
+	1	CeL-PKCDm	120
+	2	CeL-PKCDp	120

@@ -1,0 +1,66 @@
+objref file2,DAlist2
+
+	file2 = new File()
+	file2.ropen("DA.txt")
+	DAlist2 = new Vector()
+	DAlist2.scanf(file2)
+proc ConnectTwoCells() { local targetid,sourceid,type,initW,delay,threshold localobj target,syn,nc,synlist,nclist
+	sourceid = $1
+	targetid = $2
+	type = $3
+	initW = $4
+	delay = $5
+	threshold = $6
+	synlist = $o7
+	nclist = $o8
+
+	if (pc.gid_exists(targetid)) {
+		target = pc.gid2cell(targetid)
+		if (type == 1) {target.apicaldend syn = new laf2CeM(05.000000e-01)}
+		if (type == 2) {target.apicaldend syn = new laer2CeM(05.000000e-01)}
+		if (type == 3) {target.apicaldend syn = new baf2CeM(05.000000e-01)}
+		if (type == 4) {target.apicaldend syn = new baer2CeM(05.000000e-01)}
+		if (type == 6) {target.apicaldend syn = new itcv2CeM(05.000000e-01)}
+		if (type == 7) {target.apicaldend syn = new laf2CeLPKCDm(05.000000e-01)}
+		if (type == 8) {target.apicaldend syn = new laer2CeLPKCDm(05.000000e-01)}
+		if (type == 9) {target.apicaldend syn = new baf2CeLPKCDm(05.000000e-01)}
+		if (type == 10) {target.apicaldend syn = new baer2CeLPKCDm(05.000000e-01)}
+		if (type == 13) {target.apicaldend syn = new laf2CeLPKCDp(05.000000e-01)}
+		if (type == 14) {target.apicaldend syn = new laer2CeLPKCDp(05.000000e-01)}
+		if (type == 15) {target.apicaldend syn = new baf2CeLPKCDp(05.000000e-01)}
+		if (type == 16) {target.apicaldend syn = new baer2CeLPKCDp(05.000000e-01)}
+		if (type == 19) {target.soma syn = new CeLPKCDm2CeM(05.000000e-01)}
+		if (type == 20) {target.soma syn = new CeLPKCDp2CeM(05.000000e-01)}
+		if (type == 21) {target.soma syn = new CeLPKCDm2CeLPKCDp(05.000000e-01)}
+		if (type == 22) {target.soma syn = new CeLPKCDp2CeLPKCDm(05.000000e-01)}
+		if (type == 23) {target.soma syn = new CeM2CeM(05.000000e-01)}
+		if (type == 25) {target.apicaldend syn = new itcd2CeLPKCDm(05.000000e-01)}
+		if (type == 26) {target.apicaldend syn = new itcd2CeLPKCDp(05.000000e-01)}
+		if (type == 27) {target.apicaldend syn = new lanor2CeM(05.000000e-01)}
+		if (type == 28) {target.apicaldend syn = new banor2CeM(05.000000e-01)}
+		if (type == 29) {target.apicaldend syn = new lanor2CeLPKCDm(05.000000e-01)}
+		if (type == 30) {target.apicaldend syn = new banor2CeLPKCDm(05.000000e-01)}
+		if (type == 31) {target.apicaldend syn = new lanor2CeLPKCDp(05.000000e-01)}
+		if (type == 32) {target.apicaldend syn = new banor2CeLPKCDp(05.000000e-01)}
+		if (type == 33) {target.soma syn = new CeLPKCDm2CeLPKCDm(05.000000e-01)}
+		if (type == 34) {target.soma syn = new CeLPKCDp2CeLPKCDp(05.000000e-01)}
+		if (type == 35) {target.soma syn = new shock(05.000000e-01)}
+		if (type == 36) {target.apicaldend syn = new pvt2CeLPKCDm(05.000000e-01)}
+		if (type == 37) {target.apicaldend syn = new pvt2CeLPKCDp(05.000000e-01)}
+
+		syn.pregid = sourceid
+		syn.postgid = targetid
+		syn.initW = initW
+		nc = pc.gid_connect(sourceid,syn)
+		nc.weight = 1
+		nc.delay = delay
+		nc.threshold = threshold
+	for k=0, DAlist2.size-1 {
+	if(targetid==DAlist2.x[k]) {
+	syn.neuroM = 1
+	}
+}
+		synlist.append(syn)
+		nclist.append(nc)
+	}
+}

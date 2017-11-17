@@ -1,0 +1,1663 @@
+obfunc MakeInputs() { local i 
+	strdef LocalInputFile
+	LocalInputList = new List()
+	
+
+ laf1()
+
+ laer2()
+
+ baf3()
+
+ baer4()
+
+ itcv5()
+
+ itcd6()
+
+ lanor7()
+
+ banor8()
+
+ shock9()
+
+ pvt10()
+	return LocalInputList
+}
+proc laf1() { local i localobj LocalInputVector,LocalFileObj
+	LocalInputFile = "../Data_Input/Input_laf1.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf2.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf3.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf4.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf5.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf6.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf7.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf8.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf9.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf10.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf11.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf12.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf13.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf14.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf15.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf16.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf17.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf18.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf19.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laf20.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+} 
+
+proc laer2() { local i localobj LocalInputVector,LocalFileObj
+	LocalInputFile = "../Data_Input/Input_laer1.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer2.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer3.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer4.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer5.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer6.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer7.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer8.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer9.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer10.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer11.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer12.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer13.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer14.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer15.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer16.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer17.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer18.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer19.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_laer20.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+} 
+
+proc baf3() { local i localobj LocalInputVector,LocalFileObj
+	LocalInputFile = "../Data_Input/Input_baf1.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf2.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf3.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf4.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf5.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf6.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf7.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf8.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf9.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf10.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf11.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf12.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf13.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf14.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf15.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf16.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf17.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf18.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf19.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baf20.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+} 
+
+proc baer4() { local i localobj LocalInputVector,LocalFileObj
+	LocalInputFile = "../Data_Input/Input_baer1.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer2.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer3.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer4.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer5.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer6.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer7.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer8.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer9.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer10.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer11.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer12.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer13.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer14.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer15.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer16.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer17.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer18.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer19.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_baer20.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+} 
+
+proc itcv5() { local i localobj LocalInputVector,LocalFileObj
+	LocalInputFile = "../Data_Input/Input_itcv1.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv2.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv3.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv4.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv5.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv6.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv7.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv8.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv9.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv10.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv11.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv12.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv13.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv14.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv15.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv16.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv17.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv18.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv19.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcv20.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+} 
+
+proc itcd6() { local i localobj LocalInputVector,LocalFileObj
+	LocalInputFile = "../Data_Input/Input_itcd1.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd2.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd3.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd4.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd5.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd6.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd7.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd8.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd9.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd10.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd11.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd12.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd13.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd14.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd15.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd16.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd17.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd18.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd19.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_itcd20.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+} 
+
+proc lanor7() { local i localobj LocalInputVector,LocalFileObj
+	LocalInputFile = "../Data_Input/Input_lanor1.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor2.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor3.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor4.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor5.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor6.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor7.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor8.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor9.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor10.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor11.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor12.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor13.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor14.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor15.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor16.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor17.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor18.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor19.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_lanor20.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+} 
+
+proc banor8() { local i localobj LocalInputVector,LocalFileObj
+	LocalInputFile = "../Data_Input/Input_banor1.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor2.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor3.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor4.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor5.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor6.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor7.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor8.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor9.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor10.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor11.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor12.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor13.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor14.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor15.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor16.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor17.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor18.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor19.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_banor20.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+} 
+
+proc shock9() { local i localobj LocalInputVector,LocalFileObj
+	LocalInputFile = "../Data_Input/Input_shock1.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+} 
+
+proc pvt10() { local i localobj LocalInputVector,LocalFileObj
+	LocalInputFile = "../Data_Input/Input_pvt1.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt2.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt3.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt4.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt5.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt6.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt7.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt8.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt9.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt10.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt11.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt12.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt13.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt14.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt15.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt16.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt17.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt18.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt19.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt20.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt21.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt22.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt23.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt24.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt25.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt26.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt27.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt28.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt29.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt30.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt31.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt32.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt33.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt34.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt35.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt36.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt37.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt38.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt39.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+	LocalInputFile = "../Data_Input/Input_pvt40.dat"
+	LocalFileObj = new File()
+	LocalFileObj.ropen(LocalInputFile)
+	LocalInputVector = new Vector()
+	LocalInputVector.scanf(LocalFileObj)
+	LocalInputList.append(LocalInputVector)
+	LocalFileObj.close()
+	
+} 

@@ -1,0 +1,27 @@
+strdef sptfilename
+
+proc SaveAllSpTs() { local i,j localobj sptfileobj,sptvec
+	{pc.barrier()}
+	//print "Saving data"
+	for rank=0, pc.nhost-1 { // host 0 first, then 1, 2, etc.
+	if (rank==pc.id) {
+		for j = 0,CellList.count()-1 {
+			i = CellList.o(j).mygid
+					if(!pc.gid_exists(i)) { continue }
+			sprint(sptfilename,"%sSpike_Data",Dir_Output_SpikeTime)
+			//print sptfilename
+			sptvec = CellList.o(j).SpikeTimeRec
+			sptfileobj = new File()
+			sptfileobj.aopen(sptfilename)
+			for k = 0,sptvec.size-1 {
+			sptfileobj.printf("%8.4f\t %d\n",sptvec.x[k],i)
+			}
+			//print "Spike Rate 1:\n"
+			//print sptvec.size/tstop
+			sptfileobj.close()
+		}
+	
+	}
+	{pc.barrier()}
+}
+}

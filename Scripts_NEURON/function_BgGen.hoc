@@ -1,0 +1,57 @@
+begintemplate BgGen
+
+	public noise_freq,noise_start,noise_netstim
+	objref noise_netstim
+
+	public SpikeTimeRec,SpikeTimeRecNC,SpikeRecord
+	objref SpikeTimeRec,SpikeTimeRecNC
+
+	public parac,seed
+	objref parac
+
+	proc init() { local seed
+
+		noise_freq = $1
+		noise_start = $2
+
+		minisi = $3
+
+		timestep = $4
+
+		noise_netstim = new NetStim()
+		noise_netstim.interval = 1000/noise_freq
+		noise_netstim.number = 1e10
+		noise_netstim.start = noise_start
+		noise_netstim.noise = 1-(minisi/(1000/noise_freq))
+		//print noise_netstim.noise
+	
+		parac = new ParallelContext()
+		//seed = (parac.time+1)*(parac.id+1)
+		seed = 56981
+		noise_netstim.seed(seed)
+		//print seed
+		
+	}
+
+	proc SpikeRecord() { localobj bgnil
+		SpikeTimeRec = new Vector()
+		SpikeTimeRecNC = new NetCon(noise_netstim,bgnil)
+		SpikeTimeRecNC.record(SpikeTimeRec)
+		print SpikeTimeRecNC
+	}
+
+endtemplate BgGen
+/*
+////////////////////  usage   ////////////////
+
+dt = 0.01	// (ms)
+tstop = 9000	// (ms)
+
+objref trybggen
+trybggen = new BgGen(5,0,10,dt) // poisson rand stim with mean freq as 5 Hz and minimum isi as 10ms
+
+
+objref synapseobj,netconobj
+targetcell synapseobj = new synapse(0.9)
+netconobj = new NetCon(trybggen,synapseobj,1,delay,weight)
+*/

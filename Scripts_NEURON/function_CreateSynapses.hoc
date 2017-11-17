@@ -1,0 +1,35 @@
+obfunc CreateSynapses() { local i localobj SynObj
+	i = $1
+	if(i==1) {SynObj = new laf2CeM(0.500000)}
+	if(i==2) {SynObj = new laer2CeM(0.500000)}
+	if(i==3) {SynObj = new baf2CeM(0.500000)}
+	if(i==4) {SynObj = new baer2CeM(0.500000)}
+	if(i==6) {SynObj = new itcv2CeM(0.500000)}
+	if(i==7) {SynObj = new laf2CeLPKCDm(0.500000)}
+	if(i==8) {SynObj = new laer2CeLPKCDm(0.500000)}
+	if(i==9) {SynObj = new baf2CeLPKCDm(0.500000)}
+	if(i==10) {SynObj = new baer2CeLPKCDm(0.500000)}
+	if(i==13) {SynObj = new laf2CeLPKCDp(0.500000)}
+	if(i==14) {SynObj = new laer2CeLPKCDp(0.500000)}
+	if(i==15) {SynObj = new baf2CeLPKCDp(0.500000)}
+	if(i==16) {SynObj = new baer2CeLPKCDp(0.500000)}
+	if(i==19) {SynObj = new CeLPKCDm2CeM(0.500000)}
+	if(i==20) {SynObj = new CeLPKCDp2CeM(0.500000)}
+	if(i==21) {SynObj = new CeLPKCDm2CeLPKCDp(0.500000)}
+	if(i==22) {SynObj = new CeLPKCDp2CeLPKCDm(0.500000)}
+	if(i==23) {SynObj = new CeM2CeM(0.500000)}
+	if(i==25) {SynObj = new itcd2CeLPKCDm(0.500000)}
+	if(i==26) {SynObj = new itcd2CeLPKCDp(0.500000)}
+	if(i==27) {SynObj = new lanor2CeM(0.500000)}
+	if(i==28) {SynObj = new banor2CeM(0.500000)}
+	if(i==29) {SynObj = new lanor2CeLPKCDm(0.500000)}
+	if(i==30) {SynObj = new banor2CeLPKCDm(0.500000)}
+	if(i==31) {SynObj = new lanor2CeLPKCDp(0.500000)}
+	if(i==32) {SynObj = new banor2CeLPKCDp(0.500000)}
+	if(i==33) {SynObj = new CeLPKCDm2CeLPKCDm(0.500000)}
+	if(i==34) {SynObj = new CeLPKCDp2CeLPKCDp(0.500000)}
+	if(i==35) {SynObj = new shock(0.500000)}
+	if(i==36) {SynObj = new pvt2CeLPKCDm(0.500000)}
+	if(i==37) {SynObj = new pvt2CeLPKCDp(0.500000)}
+	return SynObj
+}

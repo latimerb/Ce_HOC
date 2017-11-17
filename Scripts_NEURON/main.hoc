@@ -1,0 +1,364 @@
+{load_file("stdgui.hoc")}
+
+//Documentation for ParallelContext can be found at:
+//https://www.neuron.yale.edu/neuron/static/docs/help/neuron/neuron/classes/parcon.html
+objref pc
+pc = new ParallelContext()
+
+//5 trials of Habituation at 60 s each is 300 s
+//5 trials of Conditioning at 60 s each is 300 s
+//There is a 120 s gap between conditioning and extinction
+//20 trials of Extinction at 60 s each is 1200 s 
+//Thus, full protocol is 1920000 ms long.
+//620000 would be habituation + conditioning + gap
+tstop = 620000//1920000  //620000 // 288000  //1//288000
+dt = 0.05  //0.01  //0.05
+steps_per_ms = 20  //100  //20
+SaveDataDt = .5
+TotalCellNum = 500
+
+//This section defines strings with the location of Input files
+strdef FileLocationStr_Types,FileLocationStr_Cells,FileLocationStr_Inputs,FileLocationStr_InputSynConns,FileLocationStr_InputThrConns,FileLocationStr_InputWgtConns,FileLocationStr_InputDelConns,FileLocationStr_InternalSynConns,FileLocationStr_InternalThrConns,FileLocationStr_InternalWgtConns,FileLocationStr_InternalDelConns,Dir_Output,Dir_Output_SpikeTime
+FileLocationStr_Types = "../Data_Input/Data_Types.txt"
+FileLocationStr_Cells = "../Data_Input/Data_Cells.txt"
+FileLocationStr_Inputs = "../Data_Input/Data_Inputs.txt"
+FileLocationStr_InputSynConns = "../Data_Input/Data_InputSynConns.txt"
+FileLocationStr_InputThrConns = "../Data_Input/Data_InputThrConns.txt"
+FileLocationStr_InputWgtConns = "../Data_Input/Data_InputWgtConns.txt"
+FileLocationStr_InputDelConns = "../Data_Input/Data_InputDelConns.txt"
+FileLocationStr_InternalSynConns = "../Data_Input/Data_InternalSynConns.txt"
+FileLocationStr_InternalThrConns = "../Data_Input/Data_InternalThrConns.txt"
+FileLocationStr_InternalWgtConns = "../Data_Input/Data_InternalWgtConns.txt"
+FileLocationStr_InternalDelConns = "../Data_Input/Data_InternalDelConns.txt"
+Dir_Output = "../Data_Output/"
+sprint(Dir_Output_SpikeTime,"%sSpikes/",Dir_Output) //Dir_Output_SpikeTime = "../Data_Output/Spikes/"
+
+
+//Now we create new lists to store inputs and cells
+objref CellList,InputList, LocalInputList
+CellList = new List()
+InputList = new List()
+
+//A Matrix is a class to store two dimensional arrays
+objref InputSynMatrix,InputThrMatrix,InputWgtMatrix,InputDelMatrix
+InputSynMatrix = new Matrix()
+InputThrMatrix = new Matrix()
+InputWgtMatrix = new Matrix()
+InputDelMatrix = new Matrix()
+
+//This "loads" all of the functions 
+{load_file("function_LoadAllFiles.hoc")}
+
+//TestHost()
+
+//MakeCells (function_MakeCells.hoc) returns a list of cells with their types (0-8)
+//0-RegularSpiking_CeM				5-LowThresholdBusting_CeL_PKCDm
+//1-LateFiring_CeM					6-RegularSpiking_CeL_PKCDp
+//2-LowThresholdBursting_CeM		7-LateFiring_CeL_PKCDp
+//3-RegularSpiking_CeL_PKCDm		8-LowThresholdBursting_CeL_PKCDp
+//4-LateFiring_CeL_PKCDm
+CellList = MakeCells(FileLocationStr_Cells,FileLocationStr_Types)
+
+
+//MakeInputs (function_MakeInputs.hoc) reads the data from the input files such as Input_baer1.dat
+//and returns a list containing all of the inputs from LA, BA, ITC, and shock.
+//This includes laf,laer,lanor,baf,laer, etc. in one list
+InputList = MakeInputs()
+
+//There should be 500 cells and an InputNum = 266 which is the number of input files (input "neurons")
+//Each input file is stored as a vector in InputList
+CellNum = CellList.count()
+InputNum = InputList.count()
+
+//LoadMatrix (function_ConnectInputs.hoc)
+//Each matrix has InputNum rows and TotalCellNum columns
+//The file locations are files Data_InputSynConns.txt, Data_InputThrConns.txt, Data_InputWgtConns.txt, and Data_InputDelConns
+//These are all matrices so all LoadMatrix does is reads from those files and stores them in a Matrix 
+InputSynMatrix = LoadMatrix(FileLocationStr_InputSynConns,InputNum,TotalCellNum)
+InputThrMatrix = LoadMatrix(FileLocationStr_InputThrConns,InputNum,TotalCellNum)
+InputWgtMatrix = LoadMatrix(FileLocationStr_InputWgtConns,InputNum,TotalCellNum)
+InputDelMatrix = LoadMatrix(FileLocationStr_InputDelConns,InputNum,TotalCellNum)
+
+
+//function_ConnectInputs.hoc
+ConnectInputs(InputSynMatrix,InputThrMatrix,InputWgtMatrix,InputDelMatrix,InputNum,CellNum)
+
+ConnectInternal()
+
+//After this, all inputs and internal connectivity is established
+//////////////////////////////////////////////
+
+
+
+//Now it's time to record!
+
+proc CustomizedInit() {
+        realtime = 0
+	t = 0
+        startsw()
+        init()
+        initPlot()
+}
+//objref CaInp[InputsynList.count]
+//objref CaInt[InternalsynList.count]
+//objref WtInp[InputsynList.count]
+//objref WtInt[InternalsynList.count]
+/*
+proc Record_Ca_Inp(){
+for j = 0,InputsynList.count()-1 {
+CaInp[j] = new Vector()
+CaInp[j].record(&InputsynList.o(j).capoolcon,100)
+}
+}
+
+proc Record_Wt_Inp(){
+for j = 0,InputsynList.count()-1 {
+WtInp[j] = new Vector()
+WtInp[j].record(&InputsynList.o(j).W,100)
+}
+}
+
+proc Record_Ca_Int(){
+for j = 0,InternalsynList.count()-1 {
+CaInt[j] = new Vector()
+CaInt[j].record(&InternalsynList.o(j).capoolcon,2)
+}
+}
+
+proc Record_Wt_Int(){
+for j = 0,InternalsynList.count()-1 {
+WtInt[j] = new Vector()
+WtInt[j].record(&InternalsynList.o(j).W,2)
+}
+}
+*/
+//Record_Ca_Inp()
+//Record_Ca_Int()
+//Record_Wt_Inp()
+//Record_Wt_Int()
+//print "Weights have been recorded"
+
+objref bag_vec[500], cellid
+proc Background() { 
+	for i = 0,499 {
+		if(pc.gid_exists(i)){
+		cellid = pc.gid2cell(i)  
+		 bag_vec[i] = new Vector() 
+		 cellid.ncn.record(bag_vec[i])		 
+  		}
+	}
+}
+//Background()
+
+objref f_Bg[500]
+strdef Bg
+proc SaveBG() {
+	for i = 0,499 {
+		if(pc.gid_exists(i)){
+f_Bg[i] = new File()
+			sprint(Bg,"../Data_Output/Background/BG_%d",i)
+			f_Bg[i].wopen(Bg)
+			bag_vec[i].printf(f_Bg[i])
+			f_Bg[i].close()
+}
+}
+}
+
+objref vol_vec[500], vollist
+vollist = new List()
+vol_step= 0.5
+proc volv() { localobj cellid
+		for i = 0,TotalCellNum-1 {
+		if(pc.gid_exists(i)){
+		cellid = pc.gid2cell(i)
+		 
+		 vol_vec[i] = new Vector()
+	         vol_vec[i].record(&cellid.soma.v(0.5),vol_step)
+		 vollist.append(vol_vec[i])
+		 
+  		}
+	}
+}
+volv()
+
+
+secondorder = 2
+{load_file("function_TimeMonitor.hoc")}
+{pc.timeout(0)}
+{pc.set_maxstep(10)}
+CustomizedInit()
+{pc.psolve(tstop)}
+
+print "Simulation complete! Please wait for writing data files..."
+
+//function_SaveAllSpTs.hoc
+//Saves spike times to /Data_Output/Spikes/Spike_Data
+SaveAllSpTs()
+
+/*
+
+objref f_ca_inp[InputsynList.count]
+objref f_ca_int[InternalsynList.count]
+objref f_wt_inp[InputsynList.count]
+objref f_wt_int[InternalsynList.count]
+strdef st, ct
+
+proc Save_Ca_Inp() {
+for j = 0,InputsynList.count()-1 {
+f_ca_inp[j] = new File()
+sprint(st,"../Data_Output/Ca_Inp/%d_to_%d_Ca_Inp",InputsynList.o(j).pregid,InputsynList.o(j).postgid)
+
+f_ca_inp[j].wopen(st)
+CaInp[j].printf(f_ca_inp[j])
+f_ca_inp[j].close()
+}
+}
+
+proc Save_Wt_Inp() {
+for j = 0,InputsynList.count()-1 {
+f_wt_inp[j] = new File()
+sprint(st,"../Data_Output/InputWeights/%d_to_%d_Wt_Inp",InputsynList.o(j).pregid,InputsynList.o(j).postgid)
+
+f_wt_inp[j].wopen(st)
+WtInp[j].printf(f_wt_inp[j])
+f_wt_inp[j].close()
+}
+}
+
+proc Save_Ca_Int() {
+for j = InternalsynList.count()-51,InternalsynList.count()-1 {   //for j = 0,InternalsynList.count()-1 {
+f_ca_int[j] = new File()
+sprint(ct,"../Data_Output/Ca_Int/%d_to_%d_Ca_Int",InternalsynList.o(j).pregid,InternalsynList.o(j).postgid)
+
+f_ca_int[j].wopen(ct)
+CaInt[j].printf(f_ca_int[j])
+f_ca_int[j].close()
+}
+}
+
+proc Save_Wt_Int() {
+for j = InternalsynList.count()-51,InternalsynList.count()-1 {   //for j = 0,InternalsynList.count()-1 {
+f_wt_int[j] = new File()
+sprint(ct,"../Data_Output/InputWeights/%d_to_%d_Wt_Int",InternalsynList.o(j).pregid,InternalsynList.o(j).postgid)
+
+f_wt_int[j].wopen(ct)
+WtInt[j].printf(f_wt_int[j])
+f_wt_int[j].close()
+}
+}
+
+strdef vols
+objref f_vol[500]
+proc Save_Vol() { local z
+		for i = 0,TotalCellNum-1 {
+		if(pc.gid_exists(i)){
+		f_vol[i] = new File()
+			sprint(vols,"../Data_Output/Voltage/Voltage_%d",i)
+			f_vol[i].wopen(vols)
+			z=vollist.index(vol_vec[i])
+			vollist.o[z].printf(f_vol[i])
+			f_vol[i].close()
+			
+		}
+	}
+}
+*/
+
+//////////// Save All Wgt /////////////
+/*
+objref finalwgtvec,finalwgtprevec,finalwgtpostvec,initwgtvec
+finalwgtvec = new Vector()
+finalwgtprevec = new Vector()
+finalwgtpostvec = new Vector()
+initwgtvec = new Vector()
+
+
+pc.barrier()
+for p=0, pc.nhost-1 {
+		if (p==pc.id) {
+	for j = 0,InputsynList.count()-1 {
+		finalwgtvec.append(InputsynList.o(j).W)
+		finalwgtprevec.append(InputsynList.o(j).pregid)
+		finalwgtpostvec.append(InputsynList.o(j).postgid)
+		initwgtvec.append(InputsynList.o(j).initW)
+	}
+}
+pc.barrier()
+}
+*/
+/*
+objref inputwgtfile
+strdef inputwgtfilename
+sprint(inputwgtfilename,"%sInputWeights/allfinalwgtInp.dat",Dir_Output)
+inputwgtfile = new File()
+inputwgtfile.wopen(inputwgtfilename)
+inputwgtfile.close()
+proc InpWt() { local i, rank
+	pc.barrier() // wait for all hosts to get to this point
+	for rank=0, pc.nhost-1 {
+		if (rank==pc.id) {
+			for i=0, InputsynList.count()-1 {
+				inputwgtfile.aopen(inputwgtfilename)
+				inputwgtfile.printf("%d\t %d\t %7.2f\t %7.2f\n", InputsynList.o(i).pregid, InputsynList.o(i).postgid,InputsynList.o(i).initW,InputsynList.o(i).W)
+			}
+			inputwgtfile.close()
+		}
+		pc.barrier() // wait for all hosts to get to this point
+	}
+}
+InpWt()
+*/
+
+/*
+objref finalwgtvecInt,finalwgtprevecInt,finalwgtpostvecInt,initwgtvecInt
+finalwgtvecInt = new Vector()
+finalwgtprevecInt = new Vector()
+finalwgtpostvecInt = new Vector()
+initwgtvecInt = new Vector()
+
+if (InternalsynList.count()>0) {
+	for j = 0,InternalsynList.count()-1 {
+		finalwgtvecInt.append(InternalsynList.o(j).W)
+		finalwgtprevecInt.append(InternalsynList.o(j).pregid)
+		finalwgtpostvecInt.append(InternalsynList.o(j).postgid)
+		initwgtvecInt.append(InternalsynList.o(j).initW)
+	}
+}
+pc.barrier()
+*/
+/*
+objref inputwgtfileInt
+strdef inputwgtfilenameInt
+sprint(inputwgtfilenameInt,"%sInputWeights/allfinalwgtInt.dat",Dir_Output)
+inputwgtfileInt = new File()
+inputwgtfileInt.wopen(inputwgtfilenameInt)
+inputwgtfileInt.close()
+proc IntWt() { local i, rank
+	pc.barrier() // wait for all hosts to get to this point
+	for rank=0, pc.nhost-1 {
+		if (rank==pc.id) {
+			for i=0, InternalsynList.count()-1 {
+			inputwgtfileInt.aopen(inputwgtfilenameInt)
+			inputwgtfileInt.printf("%d\t %d\t %7.2f\t %7.2f\n", InternalsynList.o(i).pregid, InternalsynList.o(i).postgid,InternalsynList.o(i).initW,InternalsynList.o(i).W)
+			}
+			inputwgtfileInt.close()
+		}
+		pc.barrier() // wait for all hosts to get to this point
+	}
+}
+IntWt()
+
+*/
+
+///////////////////////////////////////
+//Save_Ca_Inp()
+//SaveBG()
+//Save_Ca_Int()
+//Save_Wt_Inp()
+//Save_Wt_Int()
+//Save_Vol()
+{pc.runworker()}
+{pc.done()}
+//i = sred("Simulation done, press any key to quit", "y", "yn")
+
+quit()

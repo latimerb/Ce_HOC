@@ -1,0 +1,13 @@
+#!/bin/sh
+if test "x${NRNHOME}" = "x" ; then
+	NRNHOME="/work/05300/latimerb/stampede2/neuron/nrn"
+fi
+if test "x${NRNBIN}" = "x" ; then
+	NRNBIN="/work/05300/latimerb/stampede2/neuron/nrn/x86_64/bin/"
+fi
+if test "" = "yes" ; then
+	NRNIV="${NRNBIN}nrniv.app/Contents/MacOS/nrniv"
+else
+	NRNIV="${NRNBIN}nrniv"
+fi
+"${NRNIV}" -dll "/work/05300/latimerb/stampede2/CE_Model/Scripts_NEURON/x86_64/.libs/libnrnmech.so" "$@"

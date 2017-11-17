@@ -1,0 +1,14 @@
+obfunc CreateEachType() { local i, j localobj CellObj
+	i = $1
+	j = $2
+	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+	if(i==1) {CellObj = new LateFiring_CeM(j)}
+	if(i==2) {CellObj = new LowthresholdBursting_CeM (j)}
+	if(i==3) {CellObj = new RegularSpiking_CeL_PKCDm(j)}
+	if(i==4) {CellObj = new LateFiring_CeL_PKCDm(j)}
+	if(i==5) {CellObj = new LowthresholdBursting_CeL_PKCDm(j)}
+	if(i==6) {CellObj = new RegularSpiking_CeL_PKCDp(j)}
+	if(i==7) {CellObj = new LateFiring_CeL_PKCDp(j)}
+	if(i==8) {CellObj = new LowthresholdBursting_CeL_PKCDp(j)}
+	return CellObj
+}

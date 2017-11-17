@@ -1,0 +1,8 @@
+{load_file("function_BgGen.hoc")}
+{load_file("function_MakeCells.hoc")}
+{load_file("function_MakeInputs.hoc")}
+{load_file("function_ConnectInputs.hoc")}
+{load_file("function_ConnectTwoCells.hoc")}
+{load_file("function_ConnectInternal.hoc")}
+{load_file("function_SaveAllSpTs.hoc")}
+//{load_file("function_GetSpont.hoc")}

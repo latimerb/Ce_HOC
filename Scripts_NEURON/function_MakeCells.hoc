@@ -1,0 +1,73 @@
+{load_file("CE_template.hoc")}
+{load_file("function_CreateEachType.hoc")}
+
+obfunc MakeCells() { local i,j,CellTypeID,CellNum localobj FileObj,VectorObj_CellID,VectorObj_CellType,VectorObj_CellGroup,CellList,CellObj
+
+	{pc.barrier()}
+
+	////////// Read Data_Cells.txt File //////////
+	//Data_Cells.txt contains cell ID, type, group, etc.
+	FileObj = new File()
+	VectorObj_CellID = new Vector()
+	VectorObj_CellType = new Vector()
+	VectorObj_CellGroup = new Vector()
+	CellList = new List()
+	
+	FileObj.ropen($s1)
+
+	while(!FileObj.eof()) {
+		VectorObj_CellID.append(FileObj.scanvar())
+		VectorObj_CellType.append(FileObj.scanvar())
+		VectorObj_CellGroup.append(FileObj.scanvar())
+		FileObj.scanvar()
+		FileObj.scanvar()
+		FileObj.scanvar()
+		//print VectorObj_CellID.x[VectorObj_CellID.size()-1],VectorObj_CellType.x[VectorObj_CellType.size()-1],VectorObj_CellGroup.x[VectorObj_CellGroup.size()-1]
+	}
+
+	FileObj.close()
+
+	////////// Create Cells //////////
+
+	strdef CellTypeName
+	CellNum = VectorObj_CellID.size()
+
+	for (i=pc.id;i<CellNum;i+=pc.nhost) {
+		CellTypeID = VectorObj_CellType.x[i]
+
+		////////// Read Cell Type Name String from Data_Types.txt //////////
+		FileObj = new File()
+		FileObj.ropen($s2)
+		while(!FileObj.eof()) {
+			j = FileObj.scanvar()
+			FileObj.scanstr(CellTypeName)
+			if(j==VectorObj_CellType.x[i]) {
+				break
+			}
+			FileObj.scanvar()
+			FileObj.scanvar()
+		}
+		FileObj.close()
+		//print CellTypeName
+
+		////////// Make One Cell //////////
+		CellObj = CreateEachType(j,i)
+		MakeOneCell(CellObj,CellList,i,pc.id)
+	}
+
+	return CellList
+
+	{pc.barrier()}
+}
+
+proc MakeOneCell() { local CellID,NodeID localobj nc,nil
+	CellID = $3
+	NodeID = $4
+	$o1.mygid = CellID
+	$o2.append($o1)
+	pc.set_gid2node(CellID,NodeID)
+	nc = $o1.connect2target(nil)
+	pc.cell(CellID,nc)
+	//print "Cell with gid ",CellID,"is assinged to the node #",NodeID,"with local referece as ",$o1
+	nc.record($o1.SpikeTimeRec)
+}

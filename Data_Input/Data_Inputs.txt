@@ -1,0 +1,10 @@
+	0	laf	20	0	0
+	1	laer	20	0	0
+	2	baf	20	0	0
+	3	baer	20	0	0
+	4	itcv	20	0	0
+	5	itcd	20	0	0
+	6	lanor	20	0	0
+	7	banor	20	0	0
+	8	shock	1	0	0
+	9	pvt	40	0	0

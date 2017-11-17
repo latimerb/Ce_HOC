@@ -1,0 +1,93 @@
+//function_CreateSynapses just makes the synapses from mod files
+{load_file("function_CreateSynapses.hoc")}
+
+obfunc LoadMatrix() { local nrow,ncol localobj mat,datafile
+	nrow = $2
+	ncol = $3
+	datafile = new File()
+	datafile.ropen($s1)
+	mat = new Matrix()
+	mat.scanf(datafile,nrow,ncol)
+	//print mat.nrow, mat.ncol
+	datafile.close()
+
+	return mat
+}
+
+objref InputsynList,InputncList,fih
+InputsynList = new List()
+InputncList = new List()
+
+objref file1, DAlist
+file1 = new File()
+file1.ropen("DA.txt")
+DAlist = new Vector()
+DAlist.scanf(file1)
+
+proc ConnectInputs() { local i,j,k,cellgid,inputid,synid,thr,wgt,del localobj syn,nc,nil
+	for j = 0,CellNum-1 {
+		cellgid = CellList.o(j).mygid
+		for i = 0,InputNum-1 {
+			inputid = i
+			synid = InputSynMatrix.x[inputid][cellgid]
+			//If the input is an intercalated cell it synapses to the soma
+			if (synid==6 || synid== 12 || synid==18 || (synid>=24 && synid<=26) ) {
+				//printf("The cell #%d gets input from input #%d with synid #%d!\n",cellgid,inputid,synid)
+				thr = InputThrMatrix.x[inputid][cellgid]
+				wgt = InputWgtMatrix.x[inputid][cellgid]
+				del = InputDelMatrix.x[inputid][cellgid]
+				CellList.o(j).soma syn = CreateSynapses(synid)
+				syn.pregid = inputid
+				syn.postgid = cellgid
+				syn.initW = wgt
+				nc = new NetCon(nil,syn)
+				nc.weight = 1
+				nc.delay = del
+				if (del<dt) {
+					print del
+				}
+				nc.threshold = thr
+				for k=0, DAlist.size-1 {
+				if(cellgid==DAlist.x[k]) {
+				syn.neuroM = 1
+				}
+				}
+				InputsynList.append(syn)
+				InputncList.append(nc)
+			//All other inputs synapse to the apical dendrite
+			}else if (synid != 0) {
+				//printf("The cell #%d gets input from input #%d with synid #%d!\n",cellgid,inputid,synid)
+				thr = InputThrMatrix.x[inputid][cellgid]
+				wgt = InputWgtMatrix.x[inputid][cellgid]
+				del = InputDelMatrix.x[inputid][cellgid]
+				CellList.o(j).apicaldend syn = CreateSynapses(synid)
+				syn.pregid = inputid
+				syn.postgid = cellgid
+				syn.initW = wgt
+				nc = new NetCon(nil,syn)
+				nc.weight = 1
+				nc.delay = del
+				if (del<dt) {
+					print del
+				}
+				nc.threshold = thr
+				InputsynList.append(syn)
+				InputncList.append(nc)
+			}
+		}
+	}
+	fih = new FInitializeHandler("loadqueue()")
+	{pc.barrier()}
+}
+
+proc loadqueue() { local i,j,NodencNumber,input_index localobj vec,nc
+	NodencNumber = InputncList.count()
+	if (NodencNumber!=0) {
+		for i = 0,NodencNumber-1 {
+			input_index = InputsynList.o(i).pregid
+			vec = InputList.o(input_index)
+			nc = InputncList.o(i)
+			for j=0,vec.size()-1 nc.event(vec.x[j])
+		}
+	}
+}

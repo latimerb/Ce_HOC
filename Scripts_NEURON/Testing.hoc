@@ -1,0 +1,60 @@
+{load_file("nrngui.hoc")}
+{load_file("CE_template.hoc")}
+{load_file("graphics_lib.hoc")}
+
+//This code can be used to test connectivity between cells, inputs, and background noise.
+
+tstop=1000
+objref Cell
+//Cell1 = new LateFiring_CeM()
+Cell = new RegularSpiking_CeL_PKCDm(1)
+
+objref stim, stim1, r, synn, nsn, ncn
+///////////////////////
+r = new Random()
+r.MCellRan4(1000*(1+1))
+r.negexp(1)
+			
+synn = new Exp2Syn(0.5)
+synn.tau1 = 4
+synn.tau2 = 10
+nsn = new NetStim()
+ncn = new NetCon(nsn,synn,0,0,0.01)  //0.006
+nsn.number = 1e30
+nsn.interval = 1000  //1000/0.25 // ms
+nsn.noise = 0.5
+nsn.start = 0 //80000
+			
+nsn.noiseFromRandom(r)
+
+//////////////////////
+/*
+stim = new NetStim(0.9)
+stim.start = 0
+stim.interval = 250
+stim.number = 20
+
+stim1 = new NetStim(0.9)
+stim1.start = 0
+stim1.interval = 350
+stim1.number = 20
+
+objref syn, syn1, nc, nc1
+Cell.apicaldend syn = new laf2CeLPKCDm(0.5)
+Cell.apicaldend syn1 = new lanor2CeLPKCDm(0.5)
+
+syn.initW = 5
+syn1.initW = 5
+
+nc = new NetCon(stim,syn,0,2,1)
+nc1 = new NetCon(stim1,syn1,0,3,1)
+
+*/
+
+nrncontrolmenu()
+nrnpointmenu(nsn)
+v_init = -75
+
+Plot1V("Cell")
+
+init()

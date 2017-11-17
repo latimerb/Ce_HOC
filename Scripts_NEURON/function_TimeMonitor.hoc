@@ -1,0 +1,27 @@
+begintemplate TimeMonitor
+	public soma
+	create soma	
+
+	proc init() {
+		create soma
+		soma {
+			insert TMonitor
+			totaltime_TMonitor = $1
+		}
+	}
+endtemplate TimeMonitor
+
+objref TMonObj
+objref TRecVecList,TSaveList
+objref TRecVec,TSave
+
+TRecVecList = new List()
+TSaveList = new List()
+TRecVec = new Vector()
+TSave = new File()
+{TRecVecList.append(TRecVec)}
+if (pc.id == 0) {
+	TMonObj = new TimeMonitor(tstop)
+	access TMonObj.soma
+	TRecVecList.o(0).record(&tmon_TMonitor(.5),SaveDataDt)
+}

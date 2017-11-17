@@ -1,0 +1,1924 @@
+/////////////////////
+// Model Templates //
+/////////////////////
+
+begintemplate RegularSpiking_CeL_PKCDm
+	public soma, apicaldend, basaldend
+	create soma, apicaldend, basaldend
+
+	public ncl, mygid, connect2target,SpikeTimeRec, ncn
+	objref ncl, synn, nsn, ncn, r
+	objref SpikeTimeRec
+	
+	public bgobj,bgsyn,bgnc
+	objref bgobj,bgsyn,bgnc
+
+	proc init() {
+		ncl = new List()
+		v_init=-69
+		
+		mygid = -1
+		SpikeTimeRec = new Vector()
+		/////// topology ////////
+    		create soma, apicaldend, basaldend
+		connect apicaldend(0), soma(1)
+		connect soma(0), basaldend(1)
+
+		/////// geometry ////////
+		soma {
+			nseg=1
+			L=15	    //84.6		// (micrometer)
+			diam=10		//2.65         (micrometer)
+	    	}
+
+		apicaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+		basaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+
+		/////// biophysics //////
+		soma {
+			cm = 0.9				// (microF/cm2)
+			Ra = 200				//*240	// (ohm-cm)
+			Rm = 100000				// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 1.1e-5			// (siemens/cm2)
+			el_leak = -99				// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im	
+			insert a
+			insert capool
+			}
+
+		apicaldend {
+			cm = 0.9		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 40000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 1.1e-5 // (siemens/cm2)
+			el_leak = -99	// (mV)
+
+			insert na
+			insert kdr
+			insert im
+			insert sAHP
+			insert capool
+			insert hva
+			insert ihyper
+			insert a
+			}
+		basaldend {
+			cm = 0.9		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 40000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 1.1e-5 // (siemens/cm2)
+			el_leak = -99	// (mV)
+
+			insert na
+			insert kdr
+			insert im
+			insert sAHP
+			insert capool
+			insert hva
+			insert ihyper
+			insert a
+			}
+		soma {
+			ena = 55		// (mV)
+			gnabar_na = 0.2	// (siemens/cm2)
+
+			ek = -90		// (mV)
+			gkdrbar_kdr = 0.044	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 0.005
+			
+			gmbar_im = 0.0001	// (siemens/cm2)
+			
+			gabar_a=5e-5
+			
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 1000	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+			
+			r = new Random()
+			r.MCellRan4(1000*($1+1))
+			r.negexp(1)
+			
+			synn = new Exp2Syn(0.5)
+			synn.tau1 = 4
+			synn.tau2 = 10
+			nsn = new NetStim()
+			ncn = new NetCon(nsn,synn,0,0,0.005)  //0.006
+			nsn.number = 0
+			nsn.interval = 400  //1000/0.25
+			nsn.noise = 0.5
+			nsn.start = 0 //80000
+			
+			nsn.noiseFromRandom(r)
+			
+		}
+
+		apicaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.2	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.0085	// (siemens/cm2)
+	
+			ehva= 120
+			ghvabar_hva= 0.00115
+			
+			gmbar_im = 0.0001	// (siemens/cm2)
+			
+			eh = -43		// (mV)
+			ghbar_ihyper = 2e-5	//.00005 (siemens/cm2)
+
+			eca = 120		// (mV)
+
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 1000	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+	
+			gsAHPbar_sAHP = 3e-6		//0.0008	// (siemens/cm2)
+			gabar_a=5e-5
+			
+		}
+		basaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.2	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.0085	// (siemens/cm2)
+	
+			ehva= 120
+			ghvabar_hva= 0.00115
+			
+			gmbar_im = 0.0001	// (siemens/cm2)
+			
+			eh = -43		// (mV)
+			ghbar_ihyper = 2e-5	//.00005 (siemens/cm2)
+
+			eca = 120		// (mV)
+
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 1000	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+	
+			gsAHPbar_sAHP = 3e-6		//0.0008	// (siemens/cm2)
+			gabar_a=5e-5
+		}
+		
+	}	
+		obfunc connect2target ( ) { localobj nc //$o1 target point process, optional $o2 returned NetCon
+		soma nc = new NetCon (&v(.5), $o1)
+		nc.threshold = 10
+		if (numarg ( ) == 2) { $o2 = nc } // for backward compatibility
+		return nc
+	}
+endtemplate RegularSpiking_CeL_PKCDm
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+begintemplate LowthresholdBursting_CeL_PKCDm
+	public soma, apicaldend, basaldend
+	create soma, apicaldend, basaldend
+
+	public ncl, mygid, connect2target,SpikeTimeRec, ncn
+	objref ncl, synn, nsn, ncn, r
+	objref SpikeTimeRec
+	
+	public bgobj,bgsyn,bgnc
+	objref bgobj,bgsyn,bgnc
+
+	proc init() {
+		ncl = new List()
+		v_init= -80
+		mygid = -1
+		SpikeTimeRec = new Vector()
+		/////// topology ////////
+    		create soma, apicaldend, basaldend
+		connect apicaldend(0), soma(1)
+		connect soma(0), basaldend(1)
+
+		/////// geometry ////////
+		soma {
+			nseg=1
+			L= 15		//84.6		// (micrometer)
+			diam= 10	//2.65		// (micrometer)
+	    	}
+
+		apicaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+
+		basaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+		/////// biophysics //////
+		soma {
+			cm =0.8 	// (microF/cm2)
+			Ra = 150	//*240	// (ohm-cm)
+			Rm = 100000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.1e-5 // (siemens/cm2)
+			el_leak = -80	// (mV)
+
+			insert na
+			insert kdr
+			insert hva			
+			insert im
+			insert a
+			insert cat
+			insert capool
+			}
+
+		apicaldend {
+			cm = 0.75		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 100000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.1e-5  // (siemens/cm2)
+			el_leak = -80	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert ihyper
+			insert a
+			insert cat
+
+			insert capool
+			
+			}
+			
+		basaldend {
+			cm = 0.75		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 100000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.1e-5  // (siemens/cm2)
+			el_leak = -80	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert ihyper
+			insert a
+			insert cat
+
+			insert capool
+			
+			}
+		soma {
+			ena = 55		// (mV)
+			gnabar_na = 0.2    //0.12	// (siemens/cm2)
+
+			ek = -90		// (mV)
+			gkdrbar_kdr = 0.019	// (siemens/cm2)
+		
+			ehva= 120
+			ghvabar_hva= 0.0005
+			
+			gmbar_im = 4e-5	// (siemens/cm2)
+
+			eca = 120		// (mV)
+			
+			gabar_a= .00001
+			gcabar_cat = .0002
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+			
+			r = new Random()
+			r.MCellRan4(1000*($1+1))
+			r.negexp(1)
+			
+			synn = new Exp2Syn(0.5)
+			synn.tau1 = 4
+			synn.tau2 = 10
+			nsn = new NetStim()
+			ncn = new NetCon(nsn,synn,0,0,0.003)  //0.006
+			nsn.number = 0
+			nsn.interval = 400  //1000/0.25
+			nsn.noise = 0.5
+			nsn.start = 0 //80000
+			
+			nsn.noiseFromRandom(r)
+			
+			
+			}
+
+		apicaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.14	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.003	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 5e-5		
+
+			gmbar_im = 4e-5	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+			gabar_a= .00001
+			gcabar_cat = .0002
+	
+			gsAHPbar_sAHP = 0.00018	// (siemens/cm2)
+			
+		}
+		basaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.14	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.003	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 5e-5		
+
+			gmbar_im = 4e-5	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+			gabar_a= .00001
+			gcabar_cat = .0002
+	
+			gsAHPbar_sAHP = 0.00018	// (siemens/cm2)
+		}
+	
+		
+	}	
+		obfunc connect2target ( ) { localobj nc //$o1 target point process, optional $o2 returned NetCon
+		soma nc = new NetCon (&v(.5), $o1)
+		nc.threshold = 10
+		if (numarg ( ) == 2) { $o2 = nc } // for backward compatibility
+		return nc
+	}
+	
+endtemplate LowthresholdBursting_CeL_PKCDm
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+begintemplate LateFiring_CeL_PKCDm
+	public soma, apicaldend, basaldend
+	create soma, apicaldend, basaldend
+
+	public ncl, mygid, connect2target,SpikeTimeRec, ncn
+	objref ncl, synn, nsn, ncn, r
+	objref SpikeTimeRec
+	
+	public bgobj,bgsyn,bgnc
+	objref bgobj,bgsyn,bgnc
+
+	proc init() {
+		ncl = new List()
+		v_init= -82
+		mygid = -1
+		SpikeTimeRec = new Vector()
+		/////// topology ////////
+    		create soma, apicaldend, basaldend
+		connect apicaldend(0), soma(1)
+		connect soma(0), basaldend(1)
+
+		/////// geometry ////////
+		soma {
+			nseg=1
+			L= 15		//84.6		// (micrometer)
+			diam= 10	//2.65		// (micrometer)
+	    	}
+
+		apicaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+
+		basaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+		/////// biophysics //////
+		soma {
+			cm = 0.7		// (microF/cm2)
+			Ra = 150	//*240	// (ohm-cm)
+			Rm = 30000	// (ohm-cm2) earlier value was 30000
+			
+			insert leak
+			glbar_leak = 2.7e-5 // (siemens/cm2)
+			el_leak = -79	// (mV)
+
+			insert na
+			insert kdr
+			insert hva			
+			insert im
+			insert a
+			insert capool
+			}
+
+		apicaldend {
+			cm = 0.7		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 300000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.7e-5 // (siemens/cm2)
+			el_leak = -79	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert capool
+			insert ihyper
+			insert a
+
+			
+			
+			}
+			
+		basaldend {
+			cm = 0.7		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 300000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.7e-5 // (siemens/cm2)
+			el_leak = -79	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert capool
+			insert ihyper
+			insert a
+
+			
+			
+			}
+		soma {
+			ena = 55		// (mV)
+			gnabar_na = 0.12    //0.12	// (siemens/cm2)
+
+			ek = -90		// (mV)
+			gkdrbar_kdr = 0.06	// (siemens/cm2)
+		
+			ehva= 120
+			ghvabar_hva= 0.00001
+			
+			gmbar_im = 1e-6	// (siemens/cm2)
+
+			eca = 120		// (mV)
+
+			gabar_a = .001
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+			
+			r = new Random()
+			r.MCellRan4(1000*($1+1))
+			r.negexp(1)
+			
+			synn = new Exp2Syn(0.5)
+			synn.tau1 = 4
+			synn.tau2 = 10
+			nsn = new NetStim()
+			ncn = new NetCon(nsn,synn,0,0,0.01)  //0.006
+			nsn.number = 0//1e30
+			nsn.interval = 400  //1000/0.25
+			nsn.noise = 0.5
+			nsn.start = 0 //80000
+			
+			nsn.noiseFromRandom(r)
+		
+		}
+
+		apicaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.12	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.002	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 9.5e-5
+
+			gmbar_im = 2e-6	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+			gabar_a= .001
+			
+	
+			gsAHPbar_sAHP = 0.00015// (siemens/cm2)
+			
+		}
+		basaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.12	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.002	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 9.5e-5
+
+			gmbar_im = 2e-6	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+
+			gabar_a= .001
+	
+			gsAHPbar_sAHP = 0.00015	// (siemens/cm2)
+			
+		}
+		
+	}	
+		obfunc connect2target ( ) { localobj nc //$o1 target point process, optional $o2 returned NetCon
+		soma nc = new NetCon (&v(.5), $o1)
+		nc.threshold = 10
+		if (numarg ( ) == 2) { $o2 = nc } // for backward compatibility
+		return nc
+	}
+endtemplate LateFiring_CeL_PKCDm
+
+begintemplate RegularSpiking_CeL_PKCDp
+	public soma, apicaldend, basaldend
+	create soma, apicaldend, basaldend
+
+	public ncl, mygid, connect2target,SpikeTimeRec, ncn
+	objref ncl, synn, nsn, ncn, r
+	objref SpikeTimeRec
+	
+	public bgobj,bgsyn,bgnc
+	objref bgobj,bgsyn,bgnc
+
+	proc init() {
+		ncl = new List()
+		v_init=-69
+		
+		mygid = -1
+		SpikeTimeRec = new Vector()
+		/////// topology ////////
+    		create soma, apicaldend, basaldend
+		connect apicaldend(0), soma(1)
+		connect soma(0), basaldend(1)
+
+		/////// geometry ////////
+		soma {
+			nseg=1
+			L=15	    //84.6		// (micrometer)
+			diam=10		//2.65         (micrometer)
+	    	}
+
+		apicaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+		basaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+
+		/////// biophysics //////
+		soma {
+			cm = 0.9				// (microF/cm2)
+			Ra = 200				//*240	// (ohm-cm)
+			Rm = 100000				// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 1.1e-5			// (siemens/cm2)
+			el_leak = -99				// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im	
+			insert a
+			insert capool
+			}
+
+		apicaldend {
+			cm = 0.9		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 40000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 1.1e-5 // (siemens/cm2)
+			el_leak = -99	// (mV)
+
+			insert na
+			insert kdr
+			insert im
+			insert sAHP
+			insert capool
+			insert hva
+			insert ihyper
+			insert a
+			}
+		basaldend {
+			cm = 0.9		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 40000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 1.1e-5 // (siemens/cm2)
+			el_leak = -99	// (mV)
+
+			insert na
+			insert kdr
+			insert im
+			insert sAHP
+			insert capool
+			insert hva
+			insert ihyper
+			insert a
+			}
+		soma {
+			ena = 55		// (mV)
+			gnabar_na = 0.2	// (siemens/cm2)
+
+			ek = -90		// (mV)
+			gkdrbar_kdr = 0.044	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 0.005
+			
+			gmbar_im = 0.0001	// (siemens/cm2)
+			
+			gabar_a=5e-5
+			
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 1000	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+			
+			r = new Random()
+			r.MCellRan4(1000*($1+1))
+			r.negexp(1)
+			
+			synn = new Exp2Syn(0.5)
+			synn.tau1 = 4
+			synn.tau2 = 10
+			nsn = new NetStim()
+			ncn = new NetCon(nsn,synn,0,0,0.005)  //0.006
+			nsn.number = 1e30
+			nsn.interval = 250  //143  //1000/0.25
+			nsn.noise = 0.5
+			nsn.start = 0 //80000
+			
+			nsn.noiseFromRandom(r)
+			
+		}
+
+		apicaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.2	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.0085	// (siemens/cm2)
+	
+			ehva= 120
+			ghvabar_hva= 0.00115
+			
+			gmbar_im = 0.0001	// (siemens/cm2)
+			
+			eh = -43		// (mV)
+			ghbar_ihyper = 2e-5	//.00005 (siemens/cm2)
+
+			eca = 120		// (mV)
+
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 1000	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+	
+			gsAHPbar_sAHP = 3e-6		//0.0008	// (siemens/cm2)
+			gabar_a=5e-5
+			
+		}
+		basaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.2	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.0085	// (siemens/cm2)
+	
+			ehva= 120
+			ghvabar_hva= 0.00115
+			
+			gmbar_im = 0.0001	// (siemens/cm2)
+			
+			eh = -43		// (mV)
+			ghbar_ihyper = 2e-5	//.00005 (siemens/cm2)
+
+			eca = 120		// (mV)
+
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 1000	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+	
+			gsAHPbar_sAHP = 3e-6		//0.0008	// (siemens/cm2)
+			gabar_a=5e-5
+		}
+		
+	}	
+		obfunc connect2target ( ) { localobj nc //$o1 target point process, optional $o2 returned NetCon
+		soma nc = new NetCon (&v(.5), $o1)
+		nc.threshold = 10
+		if (numarg ( ) == 2) { $o2 = nc } // for backward compatibility
+		return nc
+	}
+endtemplate RegularSpiking_CeL_PKCDp
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+begintemplate LowthresholdBursting_CeL_PKCDp
+	public soma, apicaldend, basaldend
+	create soma, apicaldend, basaldend
+
+	public ncl, mygid, connect2target,SpikeTimeRec, ncn
+	objref ncl, synn, nsn, ncn, r
+	objref SpikeTimeRec
+	
+	public bgobj,bgsyn,bgnc
+	objref bgobj,bgsyn,bgnc
+
+	proc init() {
+		ncl = new List()
+		v_init= -80
+		mygid = -1
+		SpikeTimeRec = new Vector()
+		/////// topology ////////
+    		create soma, apicaldend, basaldend
+		connect apicaldend(0), soma(1)
+		connect soma(0), basaldend(1)
+
+		/////// geometry ////////
+		soma {
+			nseg=1
+			L= 15		//84.6		// (micrometer)
+			diam= 10	//2.65		// (micrometer)
+	    	}
+
+		apicaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+
+		basaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+		/////// biophysics //////
+		soma {
+			cm =0.8 	// (microF/cm2)
+			Ra = 150	//*240	// (ohm-cm)
+			Rm = 100000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.1e-5 // (siemens/cm2)
+			el_leak = -80	// (mV)
+
+			insert na
+			insert kdr
+			insert hva			
+			insert im
+			insert a
+			insert cat
+			insert capool
+			}
+
+		apicaldend {
+			cm = 0.75		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 100000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.1e-5  // (siemens/cm2)
+			el_leak = -80	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert ihyper
+			insert a
+			insert cat
+
+			insert capool
+			
+			}
+			
+		basaldend {
+			cm = 0.75		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 100000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.1e-5  // (siemens/cm2)
+			el_leak = -80	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert ihyper
+			insert a
+			insert cat
+
+			insert capool
+			
+			}
+		soma {
+			ena = 55		// (mV)
+			gnabar_na = 0.2    //0.12	// (siemens/cm2)
+
+			ek = -90		// (mV)
+			gkdrbar_kdr = 0.019	// (siemens/cm2)
+		
+			ehva= 120
+			ghvabar_hva= 0.0005
+			
+			gmbar_im = 4e-5	// (siemens/cm2)
+
+			eca = 120		// (mV)
+			
+			gabar_a= .00001
+			gcabar_cat = .0002
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+			
+			r = new Random()
+			r.MCellRan4(1000*($1+1))
+			r.negexp(1)
+			
+			synn = new Exp2Syn(0.5)
+			synn.tau1 = 4
+			synn.tau2 = 10
+			nsn = new NetStim()
+			ncn = new NetCon(nsn,synn,0,0,0.003)  //0.006
+			nsn.number = 1e30
+			nsn.interval = 250//143  //1000/0.25
+			nsn.noise = 0.5
+			nsn.start = 0 //80000
+			
+			nsn.noiseFromRandom(r)
+			}
+
+		apicaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.14	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.003	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 5e-5		
+
+			gmbar_im = 4e-5	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+			gabar_a= .00001
+			gcabar_cat = .0002
+	
+			gsAHPbar_sAHP = 0.00018	// (siemens/cm2)
+			
+		}
+		basaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.14	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.003	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 5e-5		
+
+			gmbar_im = 4e-5	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+			gabar_a= .00001
+			gcabar_cat = .0002
+	
+			gsAHPbar_sAHP = 0.00018	// (siemens/cm2)
+		}
+		
+	}	
+		obfunc connect2target ( ) { localobj nc //$o1 target point process, optional $o2 returned NetCon
+		soma nc = new NetCon (&v(.5), $o1)
+		nc.threshold = 10
+		if (numarg ( ) == 2) { $o2 = nc } // for backward compatibility
+		return nc
+	}
+	
+endtemplate LowthresholdBursting_CeL_PKCDp
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+begintemplate LateFiring_CeL_PKCDp
+	public soma, apicaldend, basaldend
+	create soma, apicaldend, basaldend
+
+	public ncl, mygid, connect2target,SpikeTimeRec, ncn
+	objref ncl, synn, nsn, ncn, r
+	objref SpikeTimeRec
+	
+	public bgobj,bgsyn,bgnc
+	objref bgobj,bgsyn,bgnc
+
+	proc init() {
+		ncl = new List()
+		v_init= -82
+		mygid = -1
+		SpikeTimeRec = new Vector()
+		/////// topology ////////
+    		create soma, apicaldend, basaldend
+		connect apicaldend(0), soma(1)
+		connect soma(0), basaldend(1)
+
+		/////// geometry ////////
+		soma {
+			nseg=1
+			L= 15		//84.6		// (micrometer)
+			diam= 10	//2.65		// (micrometer)
+	    	}
+
+		apicaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+
+		basaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+		/////// biophysics //////
+		soma {
+			cm = 0.7		// (microF/cm2)
+			Ra = 150	//*240	// (ohm-cm)
+			Rm = 30000	// (ohm-cm2) earlier value was 30000
+			
+			insert leak
+			glbar_leak = 2.7e-5 // (siemens/cm2)
+			el_leak = -79	// (mV)
+
+			insert na
+			insert kdr
+			insert hva			
+			insert im
+			insert a
+			insert capool
+			}
+
+		apicaldend {
+			cm = 0.7		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 300000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.7e-5 // (siemens/cm2)
+			el_leak = -79	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert capool
+			insert ihyper
+			insert a
+
+			
+			
+			}
+			
+		basaldend {
+			cm = 0.7		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 300000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.7e-5 // (siemens/cm2)
+			el_leak = -79	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert capool
+			insert ihyper
+			insert a
+
+			
+			
+			}
+		soma {
+			ena = 55		// (mV)
+			gnabar_na = 0.12    //0.12	// (siemens/cm2)
+
+			ek = -90		// (mV)
+			gkdrbar_kdr = 0.06	// (siemens/cm2)
+		
+			ehva= 120
+			ghvabar_hva= 0.00001
+			
+			gmbar_im = 1e-6	// (siemens/cm2)
+
+			eca = 120		// (mV)
+
+			gabar_a = .001
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+			
+			r = new Random()
+			r.MCellRan4(1000*($1+1))
+			r.negexp(1)
+			
+			synn = new Exp2Syn(0.5)
+			synn.tau1 = 4
+			synn.tau2 = 10
+			nsn = new NetStim()
+			ncn = new NetCon(nsn,synn,0,0,0.01)  //0.006
+			nsn.number = 1e30
+			nsn.interval = 250  //223  //154  //1000/0.25
+			nsn.noise = 0.5
+			nsn.start = 0 //80000
+			
+			nsn.noiseFromRandom(r)
+		
+		}
+
+		apicaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.12	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.002	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 9.5e-5
+
+			gmbar_im = 2e-6	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+			gabar_a= .001
+			
+	
+			gsAHPbar_sAHP = 0.00015// (siemens/cm2)
+			
+		}
+		basaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.12	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.002	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 9.5e-5
+
+			gmbar_im = 2e-6	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+
+			gabar_a= .001
+	
+			gsAHPbar_sAHP = 0.00015	// (siemens/cm2)
+			
+		}
+		
+	}	
+		obfunc connect2target ( ) { localobj nc //$o1 target point process, optional $o2 returned NetCon
+		soma nc = new NetCon (&v(.5), $o1)
+		nc.threshold = 10
+		if (numarg ( ) == 2) { $o2 = nc } // for backward compatibility
+		return nc
+	}
+endtemplate LateFiring_CeL_PKCDp
+
+
+begintemplate RegularSpiking_CeM
+	public soma, apicaldend, basaldend
+	create soma, apicaldend, basaldend
+
+	public ncl, mygid, connect2target,SpikeTimeRec, ncn
+	objref ncl, synn, nsn, ncn, r
+	objref SpikeTimeRec
+	
+	public bgobj,bgsyn,bgnc
+	objref bgobj,bgsyn,bgnc
+
+	proc init() {
+		ncl = new List()
+		v_init=-69
+		
+		mygid = -1
+		SpikeTimeRec = new Vector()
+		/////// topology ////////
+    		create soma, apicaldend, basaldend
+		connect apicaldend(0), soma(1)
+		connect soma(0), basaldend(1)
+
+		/////// geometry ////////
+		soma {
+			nseg=1
+			L=15	    //84.6		// (micrometer)
+			diam=10		//2.65         (micrometer)
+	    	}
+
+		apicaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+		basaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+
+		/////// biophysics //////
+		soma {
+			cm = 0.9				// (microF/cm2)
+			Ra = 200				//*240	// (ohm-cm)
+			Rm = 100000				// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 1.1e-5			// (siemens/cm2)
+			el_leak = -99				// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im	
+			insert a
+			insert capool
+			}
+
+		apicaldend {
+			cm = 0.9		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 40000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 1.1e-5 // (siemens/cm2)
+			el_leak = -99	// (mV)
+
+			insert na
+			insert kdr
+			insert im
+			insert sAHP
+			insert capool
+			insert hva
+			insert ihyper
+			insert a
+			}
+		basaldend {
+			cm = 0.9		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 40000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 1.1e-5 // (siemens/cm2)
+			el_leak = -99	// (mV)
+
+			insert na
+			insert kdr
+			insert im
+			insert sAHP
+			insert capool
+			insert hva
+			insert ihyper
+			insert a
+			}
+		soma {
+			ena = 55		// (mV)
+			gnabar_na = 0.2	// (siemens/cm2)
+
+			ek = -90		// (mV)
+			gkdrbar_kdr = 0.044	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 0.005
+			
+			gmbar_im = 0.0001	// (siemens/cm2)
+			
+			gabar_a=5e-5
+			
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 1000	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+			
+			r = new Random()
+			r.MCellRan4(1000*($1+1))
+			r.negexp(1)
+			
+			synn = new Exp2Syn(0.5)
+			synn.tau1 = 4
+			synn.tau2 = 10
+			nsn = new NetStim()
+			ncn = new NetCon(nsn,synn,0,0,0.005)  //0.006
+			nsn.number = 1e30
+			nsn.interval = 1000  //200  //1000/0.25
+			nsn.noise = 0.5
+			nsn.start = 0 //80000
+			
+			nsn.noiseFromRandom(r)
+			
+		}
+
+		apicaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.2	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.0085	// (siemens/cm2)
+	
+			ehva= 120
+			ghvabar_hva= 0.00115
+			
+			gmbar_im = 0.0001	// (siemens/cm2)
+			
+			eh = -43		// (mV)
+			ghbar_ihyper = 2e-5	//.00005 (siemens/cm2)
+
+			eca = 120		// (mV)
+
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 1000	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+	
+			gsAHPbar_sAHP = 3e-6		//0.0008	// (siemens/cm2)
+			gabar_a=5e-5
+			
+		}
+		basaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.2	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.0085	// (siemens/cm2)
+	
+			ehva= 120
+			ghvabar_hva= 0.00115
+			
+			gmbar_im = 0.0001	// (siemens/cm2)
+			
+			eh = -43		// (mV)
+			ghbar_ihyper = 2e-5	//.00005 (siemens/cm2)
+
+			eca = 120		// (mV)
+
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 1000	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+	
+			gsAHPbar_sAHP = 3e-6		//0.0008	// (siemens/cm2)
+			gabar_a=5e-5
+		}
+		
+	}	
+		obfunc connect2target ( ) { localobj nc //$o1 target point process, optional $o2 returned NetCon
+		soma nc = new NetCon (&v(.5), $o1)
+		nc.threshold = 10
+		if (numarg ( ) == 2) { $o2 = nc } // for backward compatibility
+		return nc
+	}
+endtemplate RegularSpiking_CeM
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+begintemplate LowthresholdBursting_CeM
+	public soma, apicaldend, basaldend
+	create soma, apicaldend, basaldend
+
+	public ncl, mygid, connect2target,SpikeTimeRec, ncn
+	objref ncl, synn, nsn, ncn, r
+	objref SpikeTimeRec
+	
+	public bgobj,bgsyn,bgnc
+	objref bgobj,bgsyn,bgnc
+
+	proc init() {
+		ncl = new List()
+		v_init= -80
+		mygid = -1
+		SpikeTimeRec = new Vector()
+		/////// topology ////////
+    		create soma, apicaldend, basaldend
+		connect apicaldend(0), soma(1)
+		connect soma(0), basaldend(1)
+
+		/////// geometry ////////
+		soma {
+			nseg=1
+			L= 15		//84.6		// (micrometer)
+			diam= 10	//2.65		// (micrometer)
+	    	}
+
+		apicaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+
+		basaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+		/////// biophysics //////
+		soma {
+			cm =0.8 	// (microF/cm2)
+			Ra = 150	//*240	// (ohm-cm)
+			Rm = 100000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.1e-5 // (siemens/cm2)
+			el_leak = -80	// (mV)
+
+			insert na
+			insert kdr
+			insert hva			
+			insert im
+			insert a
+			insert cat
+			insert capool
+			}
+
+		apicaldend {
+			cm = 0.75		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 100000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.1e-5  // (siemens/cm2)
+			el_leak = -80	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert ihyper
+			insert a
+			insert cat
+
+			insert capool
+			
+			}
+			
+		basaldend {
+			cm = 0.75		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 100000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.1e-5  // (siemens/cm2)
+			el_leak = -80	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert ihyper
+			insert a
+			insert cat
+
+			insert capool
+			
+			}
+		soma {
+			ena = 55		// (mV)
+			gnabar_na = 0.2    //0.12	// (siemens/cm2)
+
+			ek = -90		// (mV)
+			gkdrbar_kdr = 0.019	// (siemens/cm2)
+		
+			ehva= 120
+			ghvabar_hva= 0.0005
+			
+			gmbar_im = 4e-5	// (siemens/cm2)
+
+			eca = 120		// (mV)
+			
+			gabar_a= .00001
+			gcabar_cat = .0002
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+			
+			r = new Random()
+			r.MCellRan4(1000*($1+1))
+			r.negexp(1)
+			
+			synn = new Exp2Syn(0.5)
+			synn.tau1 = 4
+			synn.tau2 = 10
+			nsn = new NetStim()
+			ncn = new NetCon(nsn,synn,0,0,0.003)  //0.006
+			nsn.number = 1e30
+			nsn.interval = 1000			//167  //1000/0.25
+			nsn.noise = 0.5
+			nsn.start = 0 //80000
+			
+			nsn.noiseFromRandom(r)
+			}
+
+		apicaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.14	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.003	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 5e-5		
+
+			gmbar_im = 4e-5	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+			gabar_a= .00001
+			gcabar_cat = .0002
+	
+			gsAHPbar_sAHP = 0.00018	// (siemens/cm2)
+			
+		}
+		basaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.14	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.003	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 5e-5		
+
+			gmbar_im = 4e-5	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+			gabar_a= .00001
+			gcabar_cat = .0002
+	
+			gsAHPbar_sAHP = 0.00018	// (siemens/cm2)
+		}
+		
+	}	
+		obfunc connect2target ( ) { localobj nc //$o1 target point process, optional $o2 returned NetCon
+		soma nc = new NetCon (&v(.5), $o1)
+		nc.threshold = 10
+		if (numarg ( ) == 2) { $o2 = nc } // for backward compatibility
+		return nc
+	}
+	
+endtemplate LowthresholdBursting_CeM
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+begintemplate LateFiring_CeM
+	public soma, apicaldend, basaldend
+	create soma, apicaldend, basaldend
+
+	public ncl, mygid, connect2target,SpikeTimeRec, ncn
+	objref ncl, synn, nsn, ncn, r
+	objref SpikeTimeRec
+	
+	public bgobj,bgsyn,bgnc
+	objref bgobj,bgsyn,bgnc
+
+	proc init() {
+		ncl = new List()
+		v_init= -82
+		mygid = -1
+		SpikeTimeRec = new Vector()
+		/////// topology ////////
+    		create soma, apicaldend, basaldend
+		connect apicaldend(0), soma(1)
+		connect soma(0), basaldend(1)
+
+		/////// geometry ////////
+		soma {
+			nseg=1
+			L= 15		//84.6		// (micrometer)
+			diam= 10	//2.65		// (micrometer)
+	    	}
+
+		apicaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+
+		basaldend {
+			nseg=1
+			L=300		//250// (micrometer)
+			diam=5		// (micrometer)
+		}
+		/////// biophysics //////
+		soma {
+			cm = 0.7		// (microF/cm2)
+			Ra = 150	//*240	// (ohm-cm)
+			Rm = 30000	// (ohm-cm2) earlier value was 30000
+			
+			insert leak
+			glbar_leak = 2.7e-5 // (siemens/cm2)
+			el_leak = -79	// (mV)
+
+			insert na
+			insert kdr
+			insert hva			
+			insert im
+			insert a
+			insert capool
+			}
+
+		apicaldend {
+			cm = 0.7		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 300000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.7e-5 // (siemens/cm2)
+			el_leak = -79	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert capool
+			insert ihyper
+			insert a
+
+			
+			
+			}
+			
+		basaldend {
+			cm = 0.7		// (microF/cm2)
+			Ra = 150	// (ohm-cm)
+			Rm = 300000	// (ohm-cm2)
+			
+			insert leak
+			glbar_leak = 2.7e-5 // (siemens/cm2)
+			el_leak = -79	// (mV)
+
+			insert na
+			insert kdr
+			insert hva
+			insert im
+			insert sAHP
+			insert capool
+			insert ihyper
+			insert a
+
+			
+			
+			}
+		soma {
+			ena = 55		// (mV)
+			gnabar_na = 0.12    //0.12	// (siemens/cm2)
+
+			ek = -90		// (mV)
+			gkdrbar_kdr = 0.06	// (siemens/cm2)
+		
+			ehva= 120
+			ghvabar_hva= 0.00001
+			
+			gmbar_im = 1e-6	// (siemens/cm2)
+
+			eca = 120		// (mV)
+
+			gabar_a = .001
+			
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+			
+			r = new Random()
+			r.MCellRan4(1000*($1+1))
+			r.negexp(1)
+			
+			synn = new Exp2Syn(0.5)
+			synn.tau1 = 4
+			synn.tau2 = 10
+			nsn = new NetStim()
+			ncn = new NetCon(nsn,synn,0,0,0.01)  //0.006
+			nsn.number = 1e30
+			nsn.interval = 1000  //222  //1000/0.25
+			nsn.noise = 0.5
+			nsn.start = 0 //80000
+			
+			nsn.noiseFromRandom(r)
+		
+		}
+
+		apicaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.12	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.002	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 9.5e-5
+
+			gmbar_im = 2e-6	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+			gabar_a= .001
+			
+	
+			gsAHPbar_sAHP = 0.00015// (siemens/cm2)
+			
+		}
+		basaldend {
+			ena = 55		// (mV)
+			gnabar_na = 0.12	// (siemens/cm2)
+
+			ek =-90			// (mV)
+			gkdrbar_kdr = 0.002	// (siemens/cm2)
+
+			ehva= 120
+			ghvabar_hva= 9.5e-5
+
+			gmbar_im = 2e-6	// (siemens/cm2)
+
+			eh = -43		// (mV)
+			ghbar_ihyper = 0	// (siemens/cm2)
+
+			
+			eca = 120		// (mV)
+
+			taucac_capool = 1	// (ms)
+			taucas_capool = 500	// (ms)
+			
+			
+			cainf_capool = 50e-6	// (mM)
+			caci = cainf_capool
+			casi = cainf_capool
+           
+
+			gabar_a= .001
+	
+			gsAHPbar_sAHP = 0.00015	// (siemens/cm2)
+			
+		}
+		
+	}	
+		obfunc connect2target ( ) { localobj nc //$o1 target point process, optional $o2 returned NetCon
+		soma nc = new NetCon (&v(.5), $o1)
+		nc.threshold = 10
+		if (numarg ( ) == 2) { $o2 = nc } // for backward compatibility
+		return nc
+	}
+endtemplate LateFiring_CeM
+//changed cm and glbarleak for passive properties

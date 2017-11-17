@@ -1,0 +1,878 @@
+/* Created by Language version: 6.2.0 */
+/* NOT VECTORIZED */
+#define NRN_VECTORIZED 0
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "scoplib_ansi.h"
+#undef PI
+#define nil 0
+#include "md1redef.h"
+#include "section.h"
+#include "nrniv_mf.h"
+#include "md2redef.h"
+ 
+#if METHOD3
+extern int _method3;
+#endif
+
+#if !NRNGPU
+#undef exp
+#define exp hoc_Exp
+extern double hoc_Exp(double);
+#endif
+ 
+#define nrn_init _nrn_init__CeLPKCDp2CeM
+#define _nrn_initial _nrn_initial__CeLPKCDp2CeM
+#define nrn_cur _nrn_cur__CeLPKCDp2CeM
+#define _nrn_current _nrn_current__CeLPKCDp2CeM
+#define nrn_jacob _nrn_jacob__CeLPKCDp2CeM
+#define nrn_state _nrn_state__CeLPKCDp2CeM
+#define _net_receive _net_receive__CeLPKCDp2CeM 
+#define release release__CeLPKCDp2CeM 
+ 
+#define _threadargscomma_ /**/
+#define _threadargsprotocomma_ /**/
+#define _threadargs_ /**/
+#define _threadargsproto_ /**/
+ 	/*SUPPRESS 761*/
+	/*SUPPRESS 762*/
+	/*SUPPRESS 763*/
+	/*SUPPRESS 765*/
+	 extern double *getarg();
+ static double *_p; static Datum *_ppvar;
+ 
+#define t nrn_threads->_t
+#define dt nrn_threads->_dt
+#define srcid _p[0]
+#define destid _p[1]
+#define Cdur_gaba _p[2]
+#define AlphaTmax_gaba _p[3]
+#define Beta_gaba _p[4]
+#define Erev_gaba _p[5]
+#define gbar_gaba _p[6]
+#define Cainf _p[7]
+#define pooldiam _p[8]
+#define z _p[9]
+#define tauCa _p[10]
+#define neuroM _p[11]
+#define P0g _p[12]
+#define fCag _p[13]
+#define lambda1 _p[14]
+#define lambda2 _p[15]
+#define threshold1 _p[16]
+#define threshold2 _p[17]
+#define initW _p[18]
+#define fmax _p[19]
+#define fmin _p[20]
+#define thr_rp _p[21]
+#define facfactor _p[22]
+#define f _p[23]
+#define tauF _p[24]
+#define d1 _p[25]
+#define tauD1 _p[26]
+#define d2 _p[27]
+#define tauD2 _p[28]
+#define igaba _p[29]
+#define g_gaba _p[30]
+#define on_gaba _p[31]
+#define limitW _p[32]
+#define ICag _p[33]
+#define Icatotal _p[34]
+#define Wmax _p[35]
+#define Wmin _p[36]
+#define maxChange _p[37]
+#define normW _p[38]
+#define scaleW _p[39]
+#define pregid _p[40]
+#define postgid _p[41]
+#define F _p[42]
+#define D1 _p[43]
+#define D2 _p[44]
+#define r_nmda _p[45]
+#define r_gaba _p[46]
+#define capoolcon _p[47]
+#define W _p[48]
+#define eca _p[49]
+#define ica _p[50]
+#define t0 _p[51]
+#define ICan _p[52]
+#define Afactor _p[53]
+#define dW_gaba _p[54]
+#define rp _p[55]
+#define tsyn _p[56]
+#define fa _p[57]
+#define Dr_nmda _p[58]
+#define Dr_gaba _p[59]
+#define Dcapoolcon _p[60]
+#define DW _p[61]
+#define _g _p[62]
+#define _tsav _p[63]
+#define _nd_area  *_ppvar[0]._pval
+#define _ion_eca	*_ppvar[2]._pval
+#define _ion_ica	*_ppvar[3]._pval
+ 
+#if MAC
+#if !defined(v)
+#define v _mlhv
+#endif
+#if !defined(h)
+#define h _mlhh
+#endif
+#endif
+ 
+#if defined(__cplusplus)
+extern "C" {
+#endif
+ static int hoc_nrnpointerindex =  -1;
+ /* external NEURON variables */
+ /* declaration of user functions */
+ static double _hoc_DA1();
+ static double _hoc_GAP1();
+ static double _hoc_eta();
+ static double _hoc_omega();
+ static double _hoc_unirand();
+ static int _mechtype;
+extern void _nrn_cacheloop_reg(int, int);
+extern void hoc_register_prop_size(int, int, int);
+extern void hoc_register_limits(int, HocParmLimits*);
+extern void hoc_register_units(int, HocParmUnits*);
+extern void nrn_promote(Prop*, int, int);
+extern Memb_func* memb_func;
+ extern Prop* nrn_point_prop_;
+ static int _pointtype;
+ static void* _hoc_create_pnt(_ho) Object* _ho; { void* create_point_process();
+ return create_point_process(_pointtype, _ho);
+}
+ static void _hoc_destroy_pnt();
+ static double _hoc_loc_pnt(_vptr) void* _vptr; {double loc_point_process();
+ return loc_point_process(_pointtype, _vptr);
+}
+ static double _hoc_has_loc(_vptr) void* _vptr; {double has_loc_point();
+ return has_loc_point(_vptr);
+}
+ static double _hoc_get_loc_pnt(_vptr)void* _vptr; {
+ double get_loc_point_process(); return (get_loc_point_process(_vptr));
+}
+ extern void _nrn_setdata_reg(int, void(*)(Prop*));
+ static void _setdata(Prop* _prop) {
+ _p = _prop->param; _ppvar = _prop->dparam;
+ }
+ static void _hoc_setdata(void* _vptr) { Prop* _prop;
+ _prop = ((Point_process*)_vptr)->_prop;
+   _setdata(_prop);
+ }
+ /* connect user functions to hoc names */
+ static VoidFunc hoc_intfunc[] = {
+ 0,0
+};
+ static Member_func _member_func[] = {
+ "loc", _hoc_loc_pnt,
+ "has_loc", _hoc_has_loc,
+ "get_loc", _hoc_get_loc_pnt,
+ "DA1", _hoc_DA1,
+ "GAP1", _hoc_GAP1,
+ "eta", _hoc_eta,
+ "omega", _hoc_omega,
+ "unirand", _hoc_unirand,
+ 0, 0
+};
+#define DA1 DA1_CeLPKCDp2CeM
+#define GAP1 GAP1_CeLPKCDp2CeM
+#define eta eta_CeLPKCDp2CeM
+#define omega omega_CeLPKCDp2CeM
+#define unirand unirand_CeLPKCDp2CeM
+ extern double DA1( double , double );
+ extern double GAP1( double , double );
+ extern double eta( double );
+ extern double omega( double , double , double );
+ extern double unirand( );
+ /* declare global and static user variables */
+#define Beta2 Beta2_CeLPKCDp2CeM
+ double Beta2 = 0.0001;
+#define Beta1 Beta1_CeLPKCDp2CeM
+ double Beta1 = 0.001;
+#define DA_S DA_S_CeLPKCDp2CeM
+ double DA_S = 1.6;
+#define DA_t2 DA_t2_CeLPKCDp2CeM
+ double DA_t2 = 0.92;
+#define DA_t1 DA_t1_CeLPKCDp2CeM
+ double DA_t1 = 0.97;
+#define DAstop1 DAstop1_CeLPKCDp2CeM
+ double DAstop1 = 420000;
+#define DAstart1 DAstart1_CeLPKCDp2CeM
+ double DAstart1 = 400000;
+#define GAPstop1 GAPstop1_CeLPKCDp2CeM
+ double GAPstop1 = 720000;
+#define GAPstart1 GAPstart1_CeLPKCDp2CeM
+ double GAPstart1 = 600000;
+#define k k_CeLPKCDp2CeM
+ double k = 0.01;
+ /* some parameters have upper and lower limits */
+ static HocParmLimits _hoc_parm_limits[] = {
+ "d2", 0, 1,
+ "d1", 0, 1,
+ "f", 0, 1e+09,
+ "tauD2", 1e-09, 1e+09,
+ "tauD1", 1e-09, 1e+09,
+ "tauF", 1e-09, 1e+09,
+ 0,0,0
+};
+ static HocParmUnits _hoc_parm_units[] = {
+ "Beta1_CeLPKCDp2CeM", "/ms",
+ "Beta2_CeLPKCDp2CeM", "/ms",
+ "srcid", "1",
+ "destid", "1",
+ "Cdur_gaba", "ms",
+ "AlphaTmax_gaba", "/ms",
+ "Erev_gaba", "mV",
+ "gbar_gaba", "uS",
+ "Cainf", "mM",
+ "pooldiam", "micrometer",
+ "tauCa", "ms",
+ "f", "1",
+ "tauF", "ms",
+ "d1", "1",
+ "tauD1", "ms",
+ "d2", "1",
+ "tauD2", "ms",
+ "igaba", "nA",
+ "g_gaba", "uS",
+ "ICag", "mA",
+ "Icatotal", "mA",
+ 0,0
+};
+ static double W0 = 0;
+ static double capoolcon0 = 0;
+ static double delta_t = 0.01;
+ static double r_gaba0 = 0;
+ static double r_nmda0 = 0;
+ static double v = 0;
+ /* connect global user variables to hoc */
+ static DoubScal hoc_scdoub[] = {
+ "k_CeLPKCDp2CeM", &k_CeLPKCDp2CeM,
+ "GAPstart1_CeLPKCDp2CeM", &GAPstart1_CeLPKCDp2CeM,
+ "GAPstop1_CeLPKCDp2CeM", &GAPstop1_CeLPKCDp2CeM,
+ "DAstart1_CeLPKCDp2CeM", &DAstart1_CeLPKCDp2CeM,
+ "DAstop1_CeLPKCDp2CeM", &DAstop1_CeLPKCDp2CeM,
+ "DA_t1_CeLPKCDp2CeM", &DA_t1_CeLPKCDp2CeM,
+ "DA_t2_CeLPKCDp2CeM", &DA_t2_CeLPKCDp2CeM,
+ "DA_S_CeLPKCDp2CeM", &DA_S_CeLPKCDp2CeM,
+ "Beta1_CeLPKCDp2CeM", &Beta1_CeLPKCDp2CeM,
+ "Beta2_CeLPKCDp2CeM", &Beta2_CeLPKCDp2CeM,
+ 0,0
+};
+ static DoubVec hoc_vdoub[] = {
+ 0,0,0
+};
+ static double _sav_indep;
+ static void nrn_alloc(Prop*);
+static void  nrn_init(_NrnThread*, _Memb_list*, int);
+static void nrn_state(_NrnThread*, _Memb_list*, int);
+ static void nrn_cur(_NrnThread*, _Memb_list*, int);
+static void  nrn_jacob(_NrnThread*, _Memb_list*, int);
+ static void _hoc_destroy_pnt(_vptr) void* _vptr; {
+   destroy_point_process(_vptr);
+}
+ 
+static int _ode_count(int);
+static void _ode_map(int, double**, double**, double*, Datum*, double*, int);
+static void _ode_spec(_NrnThread*, _Memb_list*, int);
+static void _ode_matsol(_NrnThread*, _Memb_list*, int);
+ 
+#define _cvode_ieq _ppvar[5]._i
+ static void _ode_matsol_instance1(_threadargsproto_);
+ /* connect range variables in _p that hoc is supposed to know about */
+ static const char *_mechanism[] = {
+ "6.2.0",
+"CeLPKCDp2CeM",
+ "srcid",
+ "destid",
+ "Cdur_gaba",
+ "AlphaTmax_gaba",
+ "Beta_gaba",
+ "Erev_gaba",
+ "gbar_gaba",
+ "Cainf",
+ "pooldiam",
+ "z",
+ "tauCa",
+ "neuroM",
+ "P0g",
+ "fCag",
+ "lambda1",
+ "lambda2",
+ "threshold1",
+ "threshold2",
+ "initW",
+ "fmax",
+ "fmin",
+ "thr_rp",
+ "facfactor",
+ "f",
+ "tauF",
+ "d1",
+ "tauD1",
+ "d2",
+ "tauD2",
+ 0,
+ "igaba",
+ "g_gaba",
+ "on_gaba",
+ "limitW",
+ "ICag",
+ "Icatotal",
+ "Wmax",
+ "Wmin",
+ "maxChange",
+ "normW",
+ "scaleW",
+ "pregid",
+ "postgid",
+ "F",
+ "D1",
+ "D2",
+ 0,
+ "r_nmda",
+ "r_gaba",
+ "capoolcon",
+ "W",
+ 0,
+ 0};
+ static Symbol* _ca_sym;
+ 
+extern Prop* need_memb(Symbol*);
+
+static void nrn_alloc(Prop* _prop) {
+	Prop *prop_ion;
+	double *_p; Datum *_ppvar;
+  if (nrn_point_prop_) {
+	_prop->_alloc_seq = nrn_point_prop_->_alloc_seq;
+	_p = nrn_point_prop_->param;
+	_ppvar = nrn_point_prop_->dparam;
+ }else{
+ 	_p = nrn_prop_data_alloc(_mechtype, 64, _prop);
+ 	/*initialize range parameters*/
+ 	srcid = -1;
+ 	destid = -1;
+ 	Cdur_gaba = 0.7254;
+ 	AlphaTmax_gaba = 7.2609;
+ 	Beta_gaba = 0.0526;
+ 	Erev_gaba = -75;
+ 	gbar_gaba = 0.006;
+ 	Cainf = 5e-05;
+ 	pooldiam = 1.8172;
+ 	z = 2;
+ 	tauCa = 50;
+ 	neuroM = 0;
+ 	P0g = 0.01;
+ 	fCag = 0.024;
+ 	lambda1 = 4;
+ 	lambda2 = 0.001;
+ 	threshold1 = 5.3;
+ 	threshold2 = 5.5;
+ 	initW = 4.5;
+ 	fmax = 4.2;
+ 	fmin = 0.8;
+ 	thr_rp = 1;
+ 	facfactor = 1;
+ 	f = 0;
+ 	tauF = 20;
+ 	d1 = 0.95;
+ 	tauD1 = 40;
+ 	d2 = 0.9;
+ 	tauD2 = 70;
+  }
+ 	_prop->param = _p;
+ 	_prop->param_size = 64;
+  if (!nrn_point_prop_) {
+ 	_ppvar = nrn_prop_datum_alloc(_mechtype, 6, _prop);
+  }
+ 	_prop->dparam = _ppvar;
+ 	/*connect ionic variables to this model*/
+ prop_ion = need_memb(_ca_sym);
+ nrn_promote(prop_ion, 0, 1);
+ 	_ppvar[2]._pval = &prop_ion->param[0]; /* eca */
+ 	_ppvar[3]._pval = &prop_ion->param[3]; /* ica */
+ 
+}
+ static void _initlists();
+  /* some states have an absolute tolerance */
+ static Symbol** _atollist;
+ static HocStateTolerance _hoc_state_tol[] = {
+ 0,0
+};
+ 
+#define _tqitem &(_ppvar[4]._pvoid)
+ static void _net_receive(Point_process*, double*, double);
+ static void _update_ion_pointer(Datum*);
+ extern Symbol* hoc_lookup(const char*);
+extern void _nrn_thread_reg(int, int, void(*)(Datum*));
+extern void _nrn_thread_table_reg(int, void(*)(double*, Datum*, Datum*, _NrnThread*, int));
+extern void hoc_register_tolerance(int, HocStateTolerance*, Symbol***);
+extern void _cvode_abstol( Symbol**, double*, int);
+
+ void _CeLPKCDp2CeM_reg() {
+	int _vectorized = 0;
+  _initlists();
+ 	ion_reg("ca", -10000.);
+ 	_ca_sym = hoc_lookup("ca_ion");
+ 	_pointtype = point_register_mech(_mechanism,
+	 nrn_alloc,nrn_cur, nrn_jacob, nrn_state, nrn_init,
+	 hoc_nrnpointerindex, 0,
+	 _hoc_create_pnt, _hoc_destroy_pnt, _member_func);
+ _mechtype = nrn_get_mechtype(_mechanism[1]);
+     _nrn_setdata_reg(_mechtype, _setdata);
+     _nrn_thread_reg(_mechtype, 2, _update_ion_pointer);
+  hoc_register_prop_size(_mechtype, 64, 6);
+  hoc_register_dparam_semantics(_mechtype, 0, "area");
+  hoc_register_dparam_semantics(_mechtype, 1, "pntproc");
+  hoc_register_dparam_semantics(_mechtype, 2, "ca_ion");
+  hoc_register_dparam_semantics(_mechtype, 3, "ca_ion");
+  hoc_register_dparam_semantics(_mechtype, 4, "netsend");
+  hoc_register_dparam_semantics(_mechtype, 5, "cvodeieq");
+ 	hoc_register_cvode(_mechtype, _ode_count, _ode_map, _ode_spec, _ode_matsol);
+ 	hoc_register_tolerance(_mechtype, _hoc_state_tol, &_atollist);
+ pnt_receive[_mechtype] = _net_receive;
+ pnt_receive_size[_mechtype] = 1;
+ 	hoc_register_var(hoc_scdoub, hoc_vdoub, hoc_intfunc);
+ 	ivoc_help("help ?1 CeLPKCDp2CeM /work/05300/latimerb/stampede2/CE_Model/Scripts_NEURON/x86_64/CeLPKCDp2CeM.mod\n");
+ hoc_register_limits(_mechtype, _hoc_parm_limits);
+ hoc_register_units(_mechtype, _hoc_parm_units);
+ }
+ static double FARADAY = 96485.0;
+ static double pi = 3.141592;
+static int _reset;
+static char *modelname = "";
+
+static int error;
+static int _ninits = 0;
+static int _match_recurse=1;
+static void _modl_cleanup(){ _match_recurse=1;}
+ 
+static int _ode_spec1(_threadargsproto_);
+/*static int _ode_matsol1(_threadargsproto_);*/
+ static int _slist1[3], _dlist1[3];
+ static int release(_threadargsproto_);
+ 
+/*CVODE*/
+ static int _ode_spec1 () {_reset=0;
+ {
+   DW = limitW * eta ( _threadargscomma_ capoolcon ) * ( lambda1 * omega ( _threadargscomma_ capoolcon , threshold1 , threshold2 ) - lambda2 * W ) ;
+   Dr_gaba = AlphaTmax_gaba * on_gaba * ( 1.0 - r_gaba ) - Beta_gaba * r_gaba ;
+   Dcapoolcon = - fCag * Afactor * Icatotal + ( Cainf - capoolcon ) / tauCa ;
+   }
+ return _reset;
+}
+ static int _ode_matsol1 () {
+ DW = DW  / (1. - dt*( ( limitW * eta ( _threadargscomma_ capoolcon ) )*( ( ( - ( lambda2 )*( 1.0 ) ) ) ) )) ;
+ Dr_gaba = Dr_gaba  / (1. - dt*( ( AlphaTmax_gaba * on_gaba )*( ( ( - 1.0 ) ) ) - ( Beta_gaba )*( 1.0 ) )) ;
+ Dcapoolcon = Dcapoolcon  / (1. - dt*( ( ( ( - 1.0 ) ) ) / tauCa )) ;
+ return 0;
+}
+ /*END CVODE*/
+ static int release () {_reset=0;
+ {
+    W = W + (1. - exp(dt*(( limitW * eta ( _threadargscomma_ capoolcon ) )*( ( ( - ( lambda2 )*( 1.0 ) ) ) ))))*(- ( ( ( limitW )*( eta ( _threadargscomma_ capoolcon ) ) )*( ( ( lambda1 )*( omega ( _threadargscomma_ capoolcon , threshold1 , threshold2 ) ) ) ) ) / ( ( ( limitW )*( eta ( _threadargscomma_ capoolcon ) ) )*( ( ( - ( lambda2 )*( 1.0 ) ) ) ) ) - W) ;
+    r_gaba = r_gaba + (1. - exp(dt*(( AlphaTmax_gaba * on_gaba )*( ( ( - 1.0 ) ) ) - ( Beta_gaba )*( 1.0 ))))*(- ( ( ( AlphaTmax_gaba )*( on_gaba ) )*( ( 1.0 ) ) ) / ( ( ( AlphaTmax_gaba )*( on_gaba ) )*( ( ( - 1.0 ) ) ) - ( Beta_gaba )*( 1.0 ) ) - r_gaba) ;
+    capoolcon = capoolcon + (1. - exp(dt*(( ( ( - 1.0 ) ) ) / tauCa)))*(- ( ( ( - fCag )*( Afactor ) )*( Icatotal ) + ( ( Cainf ) ) / tauCa ) / ( ( ( ( - 1.0 ) ) ) / tauCa ) - capoolcon) ;
+   }
+  return 0;
+}
+ 
+static void _net_receive (_pnt, _args, _lflag) Point_process* _pnt; double* _args; double _lflag; 
+{    _p = _pnt->_prop->param; _ppvar = _pnt->_prop->dparam;
+  if (_tsav > t){ extern char* hoc_object_name(); hoc_execerror(hoc_object_name(_pnt->ob), ":Event arrived out of order. Must call ParallelContext.set_maxstep AFTER assigning minimum NetCon.delay");}
+ _tsav = t;   if (_lflag == 1. ) {*(_tqitem) = 0;}
+ {
+   if ( _lflag  == 0.0 ) {
+     if ( (  ! on_gaba ) ) {
+       t0 = t ;
+       on_gaba = 1.0 ;
+       net_send ( _tqitem, _args, _pnt, t +  Cdur_gaba , 1.0 ) ;
+       }
+     else if ( on_gaba  == 1.0 ) {
+       net_move ( _tqitem, _pnt, t + Cdur_gaba ) ;
+       t0 = t ;
+       }
+     }
+   if ( _lflag  == 1.0 ) {
+     on_gaba = 0.0 ;
+     }
+   if ( _lflag  == 0.0 ) {
+     rp = unirand ( _threadargs_ ) ;
+     tsyn = t ;
+     facfactor = F * D1 * D2 ;
+     if ( F > 3.0 ) {
+       F = 3.0 ;
+       }
+     if ( facfactor < 0.7 ) {
+       facfactor = 0.7 ;
+       }
+     }
+   } }
+ 
+double eta (  double _lCani ) {
+   double _leta;
+ double _ltaulearn , _lP1 , _lP2 , _lP4 , _lCacon ;
+ _lP1 = 0.1 ;
+   _lP2 = _lP1 * 1e-4 ;
+   _lP4 = 1.0 ;
+   _lCacon = _lCani * 1e3 ;
+   _ltaulearn = _lP1 / ( _lP2 + _lCacon * _lCacon * _lCacon ) + _lP4 ;
+   _leta = 1.0 / _ltaulearn * 0.001 ;
+   
+return _leta;
+ }
+ 
+static double _hoc_eta(void* _vptr) {
+ double _r;
+    _hoc_setdata(_vptr);
+ _r =  eta (  *getarg(1) );
+ return(_r);
+}
+ 
+double omega (  double _lCani , double _lthreshold1 , double _lthreshold2 ) {
+   double _lomega;
+ double _lr , _lmid , _lCacon ;
+ _lCacon = _lCani * 1e3 ;
+   _lr = ( _lthreshold2 - _lthreshold1 ) / 2.0 ;
+   _lmid = ( _lthreshold1 + _lthreshold2 ) / 2.0 ;
+   if ( _lCacon <= _lthreshold1 ) {
+     _lomega = 0.0 ;
+     }
+   else if ( _lCacon >= _lthreshold2 ) {
+     _lomega = 1.0 / ( 1.0 + 50.0 * exp ( - 50.0 * ( _lCacon - _lthreshold2 ) ) ) ;
+     }
+   else {
+     _lomega = - sqrt ( _lr * _lr - ( _lCacon - _lmid ) * ( _lCacon - _lmid ) ) ;
+     }
+   
+return _lomega;
+ }
+ 
+static double _hoc_omega(void* _vptr) {
+ double _r;
+    _hoc_setdata(_vptr);
+ _r =  omega (  *getarg(1) , *getarg(2) , *getarg(3) );
+ return(_r);
+}
+ 
+double DA1 (  double _lDAstart1 , double _lDAstop1 ) {
+   double _lDA1;
+ double _lDAtemp1 , _lDAtemp2 , _lDAtemp3 , _lDAtemp4 , _lDAtemp5 , _lDAtemp6 , _ls ;
+ _lDAtemp1 = _lDAstart1 + 60000.0 ;
+   _lDAtemp2 = _lDAtemp1 + 60000.0 ;
+   _lDAtemp3 = _lDAtemp2 + 60000.0 ;
+   _lDAtemp4 = _lDAtemp3 + 60000.0 + 120000.0 ;
+   _lDAtemp5 = _lDAtemp4 + 60000.0 ;
+   _lDAtemp6 = _lDAtemp5 + 60000.0 ;
+   if ( t <= _lDAstart1 ) {
+     _lDA1 = 1.0 ;
+     }
+   else if ( t >= _lDAstart1  && t <= _lDAstop1 ) {
+     _lDA1 = DA_t1 ;
+     }
+   else if ( t > _lDAstop1  && t < _lDAtemp1 ) {
+     _lDA1 = 1.0 + ( DA_t1 - 1.0 ) * exp ( - Beta1 * ( t - _lDAstop1 ) ) ;
+     }
+   else if ( t >= _lDAtemp1  && t <= _lDAtemp1 + 20000.0 ) {
+     _lDA1 = DA_t2 ;
+     }
+   else if ( t > _lDAtemp1 + 20000.0  && t < _lDAtemp2 ) {
+     _lDA1 = 1.0 + ( DA_t2 - 1.0 ) * exp ( - Beta2 * ( t - ( _lDAtemp1 + 20000.0 ) ) ) ;
+     }
+   else if ( t >= _lDAtemp2  && t <= _lDAtemp2 + 20000.0 ) {
+     _lDA1 = DA_t2 ;
+     }
+   else if ( t > _lDAtemp2 + 20000.0  && t < _lDAtemp3 ) {
+     _lDA1 = 1.0 + ( DA_t2 - 1.0 ) * exp ( - Beta2 * ( t - ( _lDAtemp2 + 20000.0 ) ) ) ;
+     }
+   else if ( t >= _lDAtemp3  && t <= _lDAtemp3 + 20000.0 ) {
+     _lDA1 = DA_t2 ;
+     }
+   else if ( t > _lDAtemp3 + 20000.0  && t < _lDAtemp4 ) {
+     _lDA1 = 1.0 + ( DA_t2 - 1.0 ) * exp ( - Beta2 * ( t - ( _lDAtemp3 + 20000.0 ) ) ) ;
+     }
+   else if ( t >= _lDAtemp4  && t <= _lDAtemp4 + 20000.0 ) {
+     _lDA1 = DA_t2 ;
+     }
+   else if ( t > _lDAtemp4 + 20000.0  && t < _lDAtemp5 ) {
+     _lDA1 = 1.0 + ( DA_t2 - 1.0 ) * exp ( - Beta2 * ( t - ( _lDAtemp4 + 20000.0 ) ) ) ;
+     }
+   else if ( t >= _lDAtemp5  && t <= _lDAtemp5 + 20000.0 ) {
+     _lDA1 = DA_t2 ;
+     }
+   else {
+     _lDA1 = 1.0 ;
+     }
+   
+return _lDA1;
+ }
+ 
+static double _hoc_DA1(void* _vptr) {
+ double _r;
+    _hoc_setdata(_vptr);
+ _r =  DA1 (  *getarg(1) , *getarg(2) );
+ return(_r);
+}
+ 
+double GAP1 (  double _lGAPstart1 , double _lGAPstop1 ) {
+   double _lGAP1;
+ double _ls ;
+ if ( t <= _lGAPstart1 ) {
+     _lGAP1 = 1.0 ;
+     }
+   else if ( t >= _lGAPstart1  && t <= _lGAPstop1 ) {
+     _lGAP1 = 1.0 ;
+     }
+   else {
+     _lGAP1 = 1.0 ;
+     }
+   
+return _lGAP1;
+ }
+ 
+static double _hoc_GAP1(void* _vptr) {
+ double _r;
+    _hoc_setdata(_vptr);
+ _r =  GAP1 (  *getarg(1) , *getarg(2) );
+ return(_r);
+}
+ 
+double unirand (  ) {
+   double _lunirand;
+ _lunirand = scop_random ( ) ;
+   
+return _lunirand;
+ }
+ 
+static double _hoc_unirand(void* _vptr) {
+ double _r;
+    _hoc_setdata(_vptr);
+ _r =  unirand (  );
+ return(_r);
+}
+ 
+static int _ode_count(int _type){ return 3;}
+ 
+static void _ode_spec(_NrnThread* _nt, _Memb_list* _ml, int _type) {
+   Datum* _thread;
+   Node* _nd; double _v; int _iml, _cntml;
+  _cntml = _ml->_nodecount;
+  _thread = _ml->_thread;
+  for (_iml = 0; _iml < _cntml; ++_iml) {
+    _p = _ml->_data[_iml]; _ppvar = _ml->_pdata[_iml];
+    _nd = _ml->_nodelist[_iml];
+    v = NODEV(_nd);
+  eca = _ion_eca;
+  ica = _ion_ica;
+     _ode_spec1 ();
+ }}
+ 
+static void _ode_map(int _ieq, double** _pv, double** _pvdot, double* _pp, Datum* _ppd, double* _atol, int _type) { 
+ 	int _i; _p = _pp; _ppvar = _ppd;
+	_cvode_ieq = _ieq;
+	for (_i=0; _i < 3; ++_i) {
+		_pv[_i] = _pp + _slist1[_i];  _pvdot[_i] = _pp + _dlist1[_i];
+		_cvode_abstol(_atollist, _atol, _i);
+	}
+ }
+ 
+static void _ode_matsol_instance1(_threadargsproto_) {
+ _ode_matsol1 ();
+ }
+ 
+static void _ode_matsol(_NrnThread* _nt, _Memb_list* _ml, int _type) {
+   Datum* _thread;
+   Node* _nd; double _v; int _iml, _cntml;
+  _cntml = _ml->_nodecount;
+  _thread = _ml->_thread;
+  for (_iml = 0; _iml < _cntml; ++_iml) {
+    _p = _ml->_data[_iml]; _ppvar = _ml->_pdata[_iml];
+    _nd = _ml->_nodelist[_iml];
+    v = NODEV(_nd);
+  eca = _ion_eca;
+  ica = _ion_ica;
+ _ode_matsol_instance1(_threadargs_);
+ }}
+ extern void nrn_update_ion_pointer(Symbol*, Datum*, int, int);
+ static void _update_ion_pointer(Datum* _ppvar) {
+   nrn_update_ion_pointer(_ca_sym, _ppvar, 2, 0);
+   nrn_update_ion_pointer(_ca_sym, _ppvar, 3, 3);
+ }
+
+static void initmodel() {
+  int _i; double _save;_ninits++;
+ _save = t;
+ t = 0.0;
+{
+  W = W0;
+  capoolcon = capoolcon0;
+  r_gaba = r_gaba0;
+  r_nmda = r_nmda0;
+ {
+   on_gaba = 0.0 ;
+   r_gaba = 0.0 ;
+   W = initW ;
+   limitW = 1.0 ;
+   t0 = - 1.0 ;
+   Wmax = fmax * initW ;
+   Wmin = fmin * initW ;
+   maxChange = ( Wmax - Wmin ) / 10.0 ;
+   dW_gaba = 0.0 ;
+   capoolcon = Cainf ;
+   Afactor = 1.0 / ( z * FARADAY * 4.0 / 3.0 * pi * pow( ( pooldiam / 2.0 ) , 3.0 ) ) * ( 1e6 ) ;
+   fa = 0.0 ;
+   F = 1.0 ;
+   D1 = 1.0 ;
+   D2 = 1.0 ;
+   }
+  _sav_indep = t; t = _save;
+
+}
+}
+
+static void nrn_init(_NrnThread* _nt, _Memb_list* _ml, int _type){
+Node *_nd; double _v; int* _ni; int _iml, _cntml;
+#if CACHEVEC
+    _ni = _ml->_nodeindices;
+#endif
+_cntml = _ml->_nodecount;
+for (_iml = 0; _iml < _cntml; ++_iml) {
+ _p = _ml->_data[_iml]; _ppvar = _ml->_pdata[_iml];
+ _tsav = -1e20;
+#if CACHEVEC
+  if (use_cachevec) {
+    _v = VEC_V(_ni[_iml]);
+  }else
+#endif
+  {
+    _nd = _ml->_nodelist[_iml];
+    _v = NODEV(_nd);
+  }
+ v = _v;
+  eca = _ion_eca;
+  ica = _ion_ica;
+ initmodel();
+}}
+
+static double _nrn_current(double _v){double _current=0.;v=_v;{ {
+   if ( ( eta ( _threadargscomma_ capoolcon ) * ( lambda1 * omega ( _threadargscomma_ capoolcon , threshold1 , threshold2 ) - lambda2 * W ) ) > 0.0  && W >= Wmax ) {
+     limitW = 1e-12 ;
+     }
+   else if ( ( eta ( _threadargscomma_ capoolcon ) * ( lambda1 * omega ( _threadargscomma_ capoolcon , threshold1 , threshold2 ) - lambda2 * W ) ) < 0.0  && W <= Wmin ) {
+     limitW = 1e-12 ;
+     }
+   else {
+     limitW = 1e-12 ;
+     }
+   if ( neuroM  == 1.0 ) {
+     g_gaba = gbar_gaba * r_gaba * facfactor * DA1 ( _threadargscomma_ DAstart1 , DAstop1 ) ;
+     }
+   else {
+     g_gaba = gbar_gaba * r_gaba * facfactor ;
+     }
+   igaba = W * g_gaba * ( v - Erev_gaba ) ;
+   ICag = P0g * g_gaba * ( v - eca ) ;
+   Icatotal = ICag + k * ica * 4.0 * pi * ( pow( ( 15.0 / 2.0 ) , 2.0 ) ) * ( 0.01 ) ;
+   }
+ _current += igaba;
+
+} return _current;
+}
+
+static void nrn_cur(_NrnThread* _nt, _Memb_list* _ml, int _type){
+Node *_nd; int* _ni; double _rhs, _v; int _iml, _cntml;
+#if CACHEVEC
+    _ni = _ml->_nodeindices;
+#endif
+_cntml = _ml->_nodecount;
+for (_iml = 0; _iml < _cntml; ++_iml) {
+ _p = _ml->_data[_iml]; _ppvar = _ml->_pdata[_iml];
+#if CACHEVEC
+  if (use_cachevec) {
+    _v = VEC_V(_ni[_iml]);
+  }else
+#endif
+  {
+    _nd = _ml->_nodelist[_iml];
+    _v = NODEV(_nd);
+  }
+  eca = _ion_eca;
+  ica = _ion_ica;
+ _g = _nrn_current(_v + .001);
+ 	{ _rhs = _nrn_current(_v);
+ 	}
+ _g = (_g - _rhs)/.001;
+ _g *=  1.e2/(_nd_area);
+ _rhs *= 1.e2/(_nd_area);
+#if CACHEVEC
+  if (use_cachevec) {
+	VEC_RHS(_ni[_iml]) -= _rhs;
+  }else
+#endif
+  {
+	NODERHS(_nd) -= _rhs;
+  }
+ 
+}}
+
+static void nrn_jacob(_NrnThread* _nt, _Memb_list* _ml, int _type){
+Node *_nd; int* _ni; int _iml, _cntml;
+#if CACHEVEC
+    _ni = _ml->_nodeindices;
+#endif
+_cntml = _ml->_nodecount;
+for (_iml = 0; _iml < _cntml; ++_iml) {
+ _p = _ml->_data[_iml];
+#if CACHEVEC
+  if (use_cachevec) {
+	VEC_D(_ni[_iml]) += _g;
+  }else
+#endif
+  {
+     _nd = _ml->_nodelist[_iml];
+	NODED(_nd) += _g;
+  }
+ 
+}}
+
+static void nrn_state(_NrnThread* _nt, _Memb_list* _ml, int _type){
+Node *_nd; double _v = 0.0; int* _ni; int _iml, _cntml;
+#if CACHEVEC
+    _ni = _ml->_nodeindices;
+#endif
+_cntml = _ml->_nodecount;
+for (_iml = 0; _iml < _cntml; ++_iml) {
+ _p = _ml->_data[_iml]; _ppvar = _ml->_pdata[_iml];
+ _nd = _ml->_nodelist[_iml];
+#if CACHEVEC
+  if (use_cachevec) {
+    _v = VEC_V(_ni[_iml]);
+  }else
+#endif
+  {
+    _nd = _ml->_nodelist[_iml];
+    _v = NODEV(_nd);
+  }
+ v=_v;
+{
+  eca = _ion_eca;
+  ica = _ion_ica;
+ { error =  release();
+ if(error){fprintf(stderr,"at line 155 in file CeLPKCDp2CeM.mod:\n	\n"); nrn_complain(_p); abort_run(error);}
+ }}}
+
+}
+
+static void terminal(){}
+
+static void _initlists() {
+ int _i; static int _first = 1;
+  if (!_first) return;
+ _slist1[0] = &(W) - _p;  _dlist1[0] = &(DW) - _p;
+ _slist1[1] = &(r_gaba) - _p;  _dlist1[1] = &(Dr_gaba) - _p;
+ _slist1[2] = &(capoolcon) - _p;  _dlist1[2] = &(Dcapoolcon) - _p;
+_first = 0;
+}

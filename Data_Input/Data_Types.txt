@@ -1,0 +1,9 @@
+	0	RegularSpiking_CeM	260	-80.000000
+	1	LateFiring_CeM	0	-82.000000
+	2	LowthresholdBursting_CeM 	0	-80.000000
+	3	RegularSpiking_CeL_PKCDm	120	-80.000000
+	4	LateFiring_CeL_PKCDm	0	-82.000000
+	5	LowthresholdBursting_CeL_PKCDm	0	-80.000000
+	6	RegularSpiking_CeL_PKCDp	120	-80.000000
+	7	LateFiring_CeL_PKCDp	0	-82.000000
+	8	LowthresholdBursting_CeL_PKCDp	0	-80.000000
