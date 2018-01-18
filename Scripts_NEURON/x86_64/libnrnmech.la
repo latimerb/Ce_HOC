@@ -14,10 +14,10 @@ library_names='libnrnmech.so.0.0.0 libnrnmech.so.0 libnrnmech.so'
 old_library=''
 
 # Linker flags that cannot go in dependency_libs.
-inherited_linker_flags=''
+inherited_linker_flags=' -pthread'
 
 # Libraries that this one depends upon.
-dependency_libs=' -L/work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libnrnoc.la /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/liboc.la -lX11 /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libmemacs.la /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libnrnmpi.la /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libscopmath.la /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libsparse13.la -lreadline -lncurses /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libnrniv.la /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libivoc.la /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libneuron_gnu.la /opt/apps/gcc/5.4.0/lib/../lib64/libstdc++.la /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libmeschach.la /work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib/libsundials.la -lm -ldl'
+dependency_libs=' -L/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libnrnoc.la /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/liboc.la -lX11 /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libmemacs.la /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libnrnmpi.la /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libscopmath.la /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libsparse13.la -lreadline -lncurses /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libnrniv.la -L/gpfs/homeb/pcp0/pcp0129/mpi_install/mpich-3.2.1/src/mpl /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libivoc.la /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libneuron_gnu.la /gpfs/homeb/pcp0/pcp0129/mpi_install/install/lib/libmpicxx.la /gpfs/homeb/pcp0/pcp0129/mpi_install/install/lib/libmpi.la -lrt -lpthread /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libmeschach.la /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libsundials.la -lm -ldl'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/work/05300/latimerb/stampede2/neuron/nrn/x86_64/lib'
+libdir='/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib'

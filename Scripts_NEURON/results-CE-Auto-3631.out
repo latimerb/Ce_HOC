@@ -1,0 +1,1432 @@
+Starting CE HOC Model at Tue Jan 16 23:15:58 CET 2018
+
+Currently Loaded Modules:
+  1) slurm/17.02.2 (S)
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+/gpfs/work/pcp0/pcp0129/Ce_HOC/Scripts_NEURON
+BAer2CeLPKCDm.mod BAer2CeLPKCDp.mod BAer2CeM.mod BAf2CeLPKCDm.mod BAf2CeLPKCDp.mod BAf2CeM.mod BAnor2CeLPKCDm.mod BAnor2CeLPKCDp.mod BAnor2CeM.mod CE_cal.mod CE_capool.mod CE_cat.mod CE_ia.mod CE_ih.mod CE_Ihva.mod CE_im.mod CE_kdr.mod CE_leak.mod CeLPKCDm2CeLPKCDm.mod CeLPKCDm2CeLPKCDp.mod CeLPKCDm2CeM.mod CeLPKCDp2CeLPKCDm.mod CeLPKCDp2CeLPKCDp.mod CeLPKCDp2CeM.mod CeM2CeM.mod CE_na.mod CE_sahp.mod currentclamp.mod function_TMonitor.mod ITCd2CeLPKCDm.mod ITCd2CeLPKCDp.mod ITCv2CeM.mod LAer2CeLPKCDm.mod LAer2CeLPKCDp.mod LAer2CeM.mod LAf2CeLPKCDm.mod LAf2CeLPKCDp.mod LAf2CeM.mod LAnor2CeLPKCDm.mod LAnor2CeLPKCDp.mod LAnor2CeM.mod PVT2CeLPKCDm.mod PVT2CeLPKCDp.mod shock.mod
+BAer2CeLPKCDm.mod BAer2CeLPKCDp.mod BAer2CeM.mod BAf2CeLPKCDm.mod BAf2CeLPKCDp.mod BAf2CeM.mod BAnor2CeLPKCDm.mod BAnor2CeLPKCDp.mod BAnor2CeM.mod CE_cal.mod CE_capool.mod CE_cat.mod CE_ia.mod CE_ih.mod CE_Ihva.mod CE_im.mod CE_kdr.mod CE_leak.mod CeLPKCDm2CeLPKCDm.mod CeLPKCDm2CeLPKCDp.mod CeLPKCDm2CeM.mod CeLPKCDp2CeLPKCDm.mod CeLPKCDp2CeLPKCDp.mod CeLPKCDp2CeM.mod CeM2CeM.mod CE_na.mod CE_sahp.mod currentclamp.mod function_TMonitor.mod ITCd2CeLPKCDm.mod ITCd2CeLPKCDp.mod ITCv2CeM.mod LAer2CeLPKCDm.mod LAer2CeLPKCDp.mod LAer2CeM.mod LAf2CeLPKCDm.mod LAf2CeLPKCDp.mod LAf2CeM.mod LAnor2CeLPKCDm.mod LAnor2CeLPKCDp.mod LAnor2CeM.mod PVT2CeLPKCDm.mod PVT2CeLPKCDp.mod shock.mod
+"/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/share/nrn/libtool" --tag=CC --mode=compile mpicc -DHAVE_CONFIG_H  -I. -I.. -I"/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/include/nrn" -I"/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib"      -g -O2 -c -o mod_func.lo mod_func.c
+libtool: compile:  mpicc -DHAVE_CONFIG_H -I. -I.. -I/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/include/nrn -I/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib -g -O2 -c mod_func.c  -fPIC -DPIC -o .libs/mod_func.o
+"/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/share/nrn/libtool" --tag=CC --mode=link mpicc -module  -g -O2    -o libnrnmech.la -rpath "/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib"  BAer2CeLPKCDm.lo BAer2CeLPKCDp.lo BAer2CeM.lo BAf2CeLPKCDm.lo BAf2CeLPKCDp.lo BAf2CeM.lo BAnor2CeLPKCDm.lo BAnor2CeLPKCDp.lo BAnor2CeM.lo CE_cal.lo CE_capool.lo CE_cat.lo CE_ia.lo CE_ih.lo CE_Ihva.lo CE_im.lo CE_kdr.lo CE_leak.lo CeLPKCDm2CeLPKCDm.lo CeLPKCDm2CeLPKCDp.lo CeLPKCDm2CeM.lo CeLPKCDp2CeLPKCDm.lo CeLPKCDp2CeLPKCDp.lo CeLPKCDp2CeM.lo CeM2CeM.lo CE_na.lo CE_sahp.lo currentclamp.lo function_TMonitor.lo ITCd2CeLPKCDm.lo ITCd2CeLPKCDp.lo ITCv2CeM.lo LAer2CeLPKCDm.lo LAer2CeLPKCDp.lo LAer2CeM.lo LAf2CeLPKCDm.lo LAf2CeLPKCDp.lo LAf2CeM.lo LAnor2CeLPKCDm.lo LAnor2CeLPKCDp.lo LAnor2CeM.lo PVT2CeLPKCDm.lo PVT2CeLPKCDp.lo shock.lo mod_func.lo  -L"/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib" -lnrnoc -loc -lmemacs -lnrnmpi -lscopmath -lsparse13 -lreadline -lncurses -L"/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib" "/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libnrniv.la" -livoc -lneuron_gnu -lmeschach -lsundials       -lm -ldl
+libtool: link: rm -fr  .libs/libnrnmech.la .libs/libnrnmech.lai .libs/libnrnmech.so .libs/libnrnmech.so.0 .libs/libnrnmech.so.0.0.0
+libtool: link: mpicc -shared  -fPIC -DPIC  .libs/BAer2CeLPKCDm.o .libs/BAer2CeLPKCDp.o .libs/BAer2CeM.o .libs/BAf2CeLPKCDm.o .libs/BAf2CeLPKCDp.o .libs/BAf2CeM.o .libs/BAnor2CeLPKCDm.o .libs/BAnor2CeLPKCDp.o .libs/BAnor2CeM.o .libs/CE_cal.o .libs/CE_capool.o .libs/CE_cat.o .libs/CE_ia.o .libs/CE_ih.o .libs/CE_Ihva.o .libs/CE_im.o .libs/CE_kdr.o .libs/CE_leak.o .libs/CeLPKCDm2CeLPKCDm.o .libs/CeLPKCDm2CeLPKCDp.o .libs/CeLPKCDm2CeM.o .libs/CeLPKCDp2CeLPKCDm.o .libs/CeLPKCDp2CeLPKCDp.o .libs/CeLPKCDp2CeM.o .libs/CeM2CeM.o .libs/CE_na.o .libs/CE_sahp.o .libs/currentclamp.o .libs/function_TMonitor.o .libs/ITCd2CeLPKCDm.o .libs/ITCd2CeLPKCDp.o .libs/ITCv2CeM.o .libs/LAer2CeLPKCDm.o .libs/LAer2CeLPKCDp.o .libs/LAer2CeM.o .libs/LAf2CeLPKCDm.o .libs/LAf2CeLPKCDp.o .libs/LAf2CeM.o .libs/LAnor2CeLPKCDm.o .libs/LAnor2CeLPKCDp.o .libs/LAnor2CeM.o .libs/PVT2CeLPKCDm.o .libs/PVT2CeLPKCDp.o .libs/shock.o .libs/mod_func.o   -Wl,-rpath -Wl,/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib -Wl,-rpath -Wl,/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib -L/gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libnrnoc.so /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/liboc.so /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libmemacs.so /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libnrnmpi.so /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libscopmath.so /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libsparse13.so -lreadline -lncurses /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libnrniv.so /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libivoc.so /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libneuron_gnu.so /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libmeschach.so /gpfs/homeb/pcp0/pcp0129/neuron_install/nrn/x86_64/lib/libsundials.so -lm -ldl  -g -O2   -pthread -Wl,-soname -Wl,libnrnmech.so.0 -o .libs/libnrnmech.so.0.0.0
+/usr/bin/ld: cannot find -lreadline
+/usr/bin/ld: cannot find -lncurses
+collect2: error: ld returned 1 exit status
+make: *** [libnrnmech.la] Error 1
+Main CE HOC file starting at Tue Jan 16 23:16:17 CET 2018
+numprocs=40
+NEURON -- VERSION 7.5 master (6b4c19f) 2017-09-25
+Duke, Yale, and the BlueBrain Project -- Copyright 1984-2016
+See http://neuron.yale.edu/neuron/credits
+
+		1 
+1 
+	1 
+	1 
+	1 
+	1 
+	1 
+		1 
+1 
+	1 
+		1 
+1 
+		1 
+	1 
+	1 
+1 
+	1 
+	1 
+	1 
+	1 
+		1 
+1 
+	1 
+	1 
+	1 
+	1 
+	1 
+		1 
+1 
+		1 
+	1 
+1 
+	1 
+	1 
+	1 
+	1 
+		1 
+	1 
+1 
+	1 
+18 nrniv: syntax error
+18  in CE_template.hoc near line 51
+18  			insert leak
+              ^
+35 nrniv: syntax error
+35  in CE_template.hoc near line 51
+35  			insert leak
+              ^
+        18 xopen("CE_template.hoc")
+      18 execute1("{xopen("CE...")
+    18 load_file("CE_template.hoc")
+  18 xopen("function_M...")
+and others
+34 nrniv: syntax error
+34  in CE_template.hoc near line 51
+34  			insert leak
+              ^
+          35 xopen("CE_template.hoc")
+      35 execute1("{xopen("CE...")
+    35 load_file("CE_template.hoc")
+  35 xopen("function_M...")
+and others
+      34 xopen("CE_template.hoc")
+      34 execute1("{xopen("CE...")
+    34 load_file("CE_template.hoc")
+  34 xopen("function_M...")
+and others
+26 nrniv: syntax error
+26  in CE_template.hoc near line 51
+26  			insert leak
+              ^
+        26 xopen("CE_template.hoc")
+      26 execute1("{xopen("CE...")
+    26 load_file("CE_template.hoc")
+  26 xopen("function_M...")
+and others
+8 nrniv: syntax error
+8  in CE_template.hoc near line 51
+8  			insert leak
+              ^
+        8 xopen("CE_template.hoc")
+      8 execute1("{xopen("CE...")
+    8 load_file("CE_template.hoc")
+  8 xopen("function_M...")
+and others
+13 nrniv: syntax error
+13  in CE_template.hoc near line 51
+13  			insert leak
+              ^
+        13 xopen(6 nrniv: syntax error
+6  in CE_template.hoc near line 51
+6  			insert leak
+         36 nrniv: syntax error
+36  in CE_template.hoc near line 51
+36  			insert leak
+              ^
+"CE_template.hoc")
+      13 execute1("{xopen("CE...")
+    13 load_file("CE_template.hoc")
+  13 xopen("function_M...")
+and others
+22 nrniv: syntax error
+22  in CE_template.hoc near line 51
+22  			insert leak
+              ^
+        22 xopen(     ^
+        6 xopen("CE_template.hoc")
+      6 execute1("{xopen("CE...")
+    6 load_file("CE_template.hoc")
+  6 xopen("function_M...")
+and others
+        36 xopen("CE_template.hoc")
+      36 execute1("{xopen("CE...")
+    36 load_file("CE_template.hoc")
+  36 xopen("function_M...")
+and others
+5 nrniv: syntax error
+5  in CE_template.hoc near line 51
+5  			insert leak
+              ^
+        5 xopen("CE_template.hoc""CE_template.hoc")
+      22 execute1("{xopen("CE...")
+    22 load_file("CE_template.hoc")
+  22 xopen("function_M...")
+and others
+0 nrniv: syntax error
+0  in CE_template.hoc near line 51
+0  			insert leak
+              ^
+        0 xopen("CE_template.hoc"20 nrniv: syntax error
+20  in CE_template.hoc near line 51
+20  			insert leak
+              ^
+)
+      5 execute1("{xopen("CE...")
+    5 load_file("CE_template.hoc")
+  5 xopen("function_M...")
+and others
+32 nrniv: syntax error
+32  in CE_template.hoc near line 51
+32  			insert leak
+          18 nrniv: RegularSpiking_CeM is not a template
+18  in function_CreateEachType.hoc near line 4
+18  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        18 xopen("function_C...")
+      18 execute1("{xopen("fu...")
+    18 load_file("function_C...")
+  18 xopen("function_M...")
+and others
+        20 xopen("CE_template.hoc")
+      20 execute1("{xopen("CE...")
+    20 load_file("CE_template.hoc")
+  20 xopen("function_M...")
+and others
+)
+      0 execute1("{xopen("CE...")
+    0 load_file("CE_template.hoc")
+  0 xopen("function_M...")
+and others
+    ^
+        32 xopen("CE_template.hoc")
+      32 execute1("{xopen("CE...")
+    6 nrniv: RegularSpiking_CeM is not a template
+6  in function_CreateEachType.hoc near line 4
+6  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        6 xopen("function_C...")
+      6 execute1("{xopen("fu...")
+    6 load_file("function_C...")
+  32 load_file("CE_template.hoc")
+  32 xopen("function_M...")
+and others
+8 nrniv: RegularSpiking_CeM is not a template
+8  in function_CreateEachType.hoc near line 4
+8  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        8 xopen("function_C...")
+      8 execute1("{xopen("fu...")
+    8 load_file("function_C...")
+  8 xopen("function_M...")
+and others
+34 nrniv: RegularSpiking_CeM is not a template
+34  in function_CreateEachType.hoc near line 4
+34  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                        13 nrniv: RegularSpiking_CeM is not a template
+13  in function_CreateEachType.hoc near line 4
+13  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        13 xopen("function_C...")
+      13 execute1("{xopen("fu...")
+    13 load_file("function_C...")
+  13 xopen("function_M...")
+and others
+20 nrniv: RegularSpiking_CeM is not a template
+20  in function_CreateEachType.hoc near line 4
+20  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        20 xopen("function_C...")
+      20 execute1("{xopen("fu...")
+    20 load_file("function_C...")
+  20 xopen("function_M..."0 nrniv: RegularSpiking_CeM is not a template
+0  in function_CreateEachType.hoc near line 4
+0  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+         22 nrniv: RegularSpiking_CeM is not a template
+22  in function_CreateEachType.hoc near line 4
+22  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        22 xopen("function_C...")
+      22 execute1("{xopen("fu...")
+    22 load_file("function_C...")
+  22 xopen("function_M...")
+and others
+5 nrniv: RegularSpiking_CeM is not a template
+5  in function_CreateEachType.hoc near line 4
+5  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        5 xopen("function_C...")
+      5 execute1("{xopen("fu...")
+    5 load_file("function_C...")
+  5 xopen("function_M...")
+and others
+26 nrniv: RegularSpiking_CeM is not a template
+26  in function_CreateEachType.hoc near line 4
+26  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                  6 xopen("function_M...")
+and others
+32 nrniv: RegularSpiking_CeM is not a template
+32  in function_CreateEachType.hoc near line 4
+32  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        32 xopen("function_C...")
+      32 execute1("{xopen("fu...")
+    32 load_file("function_C...")
+  32 xopen("function_M...")
+and others
+16 nrniv: syntax error
+16  in CE_template.hoc near line 51
+16  			insert leak
+              ^
+        16 xopen("CE_template.hoc")
+      16 execute1("{xopen("CE...")
+    16 load_file("CE_template.hoc")
+  16 xopen("function_M...")
+and others
+                      ^
+        34 xopen("function_C...")
+      34 execute1("{xopen("fu...")
+    34 load_file("function_C...")
+  34 xopen("function_M...")
+and others
+                                     ^
+        0 xopen("function_C...")
+      0 execute1("{xopen("fu...")
+    0 load_file("function_C...")
+  0 xopen("function_M...")
+and others
+35 nrniv: RegularSpiking_CeM is not a template
+35  in function_CreateEachType.hoc near line 4
+35  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        35 xopen("function_C...")
+      35 execute1("{xopen("fu...")
+    35 load_file("function_C...")
+  35 xopen("function_M...")
+and others
+19 nrniv: syntax error
+19  in CE_template.hoc near line 51
+19  			insert leak
+              )
+and others
+10 nrniv: syntax error
+10  in CE_template.hoc near line 51
+10  			insert leak
+              ^
+              ^
+        26 xopen("function_C...")
+      26 execute1("{xopen("fu...")
+    26 load_file("function_C...")
+  26 xopen("function_M...")
+and others
+16 nrniv: RegularSpiking_CeM is not a template
+16  in function_CreateEachType.hoc near line 4
+16  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        16 xopen("function_C...")
+      31 nrniv: syntax error
+31  in CE_template.hoc near line 51
+31  			insert leak
+              ^
+        31 xopen("CE_template.hoc")
+      31 execute1("{xopen("CE...")
+    31 load_file("CE_template.hoc")
+  31 xopen("function_M...")
+and others
+^
+        19 xopen("CE_template.hoc")
+      19 execute1("{xopen("CE...")
+    19 load_file("CE_template.hoc")
+  19 xopen("function_M...")
+and others
+36 nrniv: RegularSpiking_CeM is not a template
+36  in function_CreateEachType.hoc near line 4
+36  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        36 xopen("function_C...")
+      36 execute1("{xopen("fu...")
+    36 load_file("function_C...")
+  36 xopen("function_M...")
+and others
+2 nrniv: syntax error
+2  in CE_template.hoc near line 51
+2  			insert leak
+24 nrniv: syntax error
+24  in CE_template.hoc near line 51
+24  			insert leak
+                10 xopen("CE_template.hoc")
+      10 execute1("{xopen("CE...")
+    10 load_file("CE_template.hoc")
+  10 xopen("function_M...")
+and others
+25 nrniv: syntax error
+25  in CE_template.hoc near line 51
+25  			insert leak
+              ^
+        25 xopen("CE_template.hoc")
+      25 execute1(11 nrniv: syntax error
+11  in CE_template.hoc near line 51
+11  			insert leak
+              ^
+        11 xopen("CE_template.hoc")
+      11 execute1("{xopen("CE...")
+    11 load_file("CE_template.hoc")
+  11 xopen("function_M...")
+and others
+    ^
+        16 execute1("{xopen("fu...")
+    16 load_file("function_C...")
+  16 xopen("function_M...")
+and others
+"{xopen("CE...")
+    25 load_file("CE_template.hoc")
+  25 xopen("function_M...")
+and others
+              ^
+        2 xopen("CE_template.hoc")
+      2 execute1("{xopen("CE...")
+    2 load_file("CE_template.hoc")
+  2 xopen(30 nrniv: syntax error
+30  in CE_template.hoc near line 51
+30  			insert leak
+              ^
+        7 nrniv: syntax error
+7  in CE_template.hoc near line 51
+7  			insert leak
+              ^
+        7 xopen("CE_template.hoc")
+      7 execute1("{xopen("CE...")
+    7 load_file("CE_template.hoc")
+  7 xopen("function_M...")
+and others
+24 xopen("CE_template.hoc")
+      24 execute1("{xopen("CE...")
+    24 load_file("CE_template.hoc")
+  24 xopen("function_M...")
+and others
+15 nrniv: syntax error
+15  in CE_template.hoc near line 51
+15  			insert leak
+              ^
+        15 xopen("CE_template.hoc")
+      15 execute1("{xopen("CE...")
+    15 load_file("CE_template.hoc")
+  15 xopen("function_M...")
+and others
+30 xopen("CE_template.hoc")
+      30 execute1("{xopen("CE...")
+    30 load_file("CE_template.hoc")
+  30 xopen("function_M...")
+and others
+"function_M...")
+and others
+37 nrniv: syntax error
+37  in CE_template.hoc near line 51
+37  			insert leak
+              ^
+10 nrniv: RegularSpiking_CeM is not a template
+10  in function_CreateEachType.hoc near line 4
+10  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        10 xopen("function_C...")
+      10 execute1("{xopen("fu...")
+    10 load_file("function_C...")
+  10 xopen("function_M...")
+and others
+        37 xopen("CE_template.hoc")
+      37 execute1("{xopen("CE...")
+    37 load_file(11 nrniv: RegularSpiking_CeM is not a template
+11  in function_CreateEachType.hoc near line 4
+11  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        11 xopen("function_C...")
+      11 execute1("{xopen("fu...")
+    11 load_file("function_C...")
+  11 xopen("function_M...")
+and others
+31 nrniv: RegularSpiking_CeM is not a template
+31  in function_CreateEachType.hoc near line 4
+31  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+           12 nrniv: syntax error
+12  in CE_template.hoc near line 51
+12  			insert leak
+              ^
+        12 xopen("CE_template.hoc")
+      12 execute1("{xopen("CE...")
+    12 load_file("CE_template.hoc")
+  12 xopen("function_M...")
+and others
+"CE_template.hoc")
+  37 xopen("function_M...")
+and others
+17 nrniv: syntax error
+17  in CE_template.hoc near line 51
+17  			insert leak
+              ^
+        17 xopen("CE_template.hoc")
+      17 execute1("{xopen("CE...")
+    17 load_file("CE_template.hoc")
+  17 xopen("function_M...")
+and others
+                             1 nrniv: syntax error
+1  in CE_template.hoc near line 51
+1  			insert leak
+              ^
+        1 xopen("CE_template.hoc")
+      1 execute1("{xopen("CE...")
+    1 load_file("CE_template.hoc")
+  1 xopen("function_M...")
+and others
+      ^
+        31 xopen("function_C...")
+      31 execute1("{xopen("fu...")
+    31 load_file("function_C...")
+  31 xopen("function_M...")
+and others
+3 nrniv: syntax error
+3  in CE_template.hoc near line 51
+3  			insert leak
+              ^
+        3 xopen("CE_template.hoc")
+      3 execute1("{xopen("CE...")
+    3 load_file("CE_template.hoc")
+  3 xopen("function_M...")
+and others
+21 nrniv: syntax error
+21  in CE_template.hoc near line 51
+21  			insert leak
+              ^
+9 nrniv: syntax error
+9  in CE_template.hoc near line 51
+9  			insert leak
+              ^
+        9 xopen("CE_template.hoc")
+      9 execute1("{xopen("CE...")
+    9 load_file("CE_template.hoc")
+  9 xopen("function_M...")
+and others
+25 nrniv: RegularSpiking_CeM is not a template
+25  in function_CreateEachType.hoc near line 4
+25  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                          12 nrniv: RegularSpiking_CeM is not a template
+12  in function_CreateEachType.hoc near line 4
+12  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        12 xopen("function_C...")
+      12 execute1("{xopen("fu...")
+    12 load_file("function_C...")
+  12 xopen("function_M...")
+and others
+29 nrniv: syntax error
+29  in CE_template.hoc near line 51
+29  			insert leak
+              ^
+        29 xopen("CE_template.hoc")
+      29 execute1("{xopen("CE...")
+    29 load_file("CE_template.hoc")
+  29 xopen("function_M...")
+and others
+15 nrniv: RegularSpiking_CeM is not a template
+15  in function_CreateEachType.hoc near line 4
+15  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        15 xopen(33 nrniv: syntax error
+33  in CE_template.hoc near line 51
+33  			insert leak
+              ^
+        33 xopen("CE_template.hoc")
+    17 nrniv: RegularSpiking_CeM is not a template
+17  in function_CreateEachType.hoc near line 4
+17  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        17 xopen("function_C...")
+      17 execute1("{xopen("fu...")
+    17 load_file("function_C...")
+  17 xopen("function_M...")
+and others
+38 nrniv: syntax error
+38  in CE_template.hoc near line 51
+38  			insert leak
+              ^
+        38 xopen("CE_template.hoc")
+      38 execute1("{xopen("CE..."19 nrniv: RegularSpiking_CeM is not a template
+19  in function_CreateEachType.hoc near line 4
+19  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        19 xopen("function_C...")
+      19 execute1("{xopen("fu...")
+    19 load_file("function_C...")
+  19 xopen("function_M...")
+and others
+        21 xopen("CE_template.hoc")
+      21 execute1("{xopen("CE...")
+    21 load_file("CE_template.hoc")
+  21 xopen("function_M...")
+and others
+1 nrniv: RegularSpiking_CeM is not a template
+1  in function_CreateEachType.hoc near line 4
+1  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        1 xopen("function_C...")
+      1 execute1("{xopen("fu...")
+    1 load_file("function_C...")
+  1 xopen("function_M...")
+and others
+    ^
+        25 xopen("function_C...")
+      25 execute1("{xopen("fu...")
+    25 load_file("function_C...")
+  25 xopen("function_M...")
+and others
+2 nrniv: RegularSpiking_CeM is not a template
+2  in function_CreateEachType.hoc near line 4
+2  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        2 xopen("function_C...")
+      27 nrniv: syntax error
+27  in CE_template.hoc near line 51
+27  			insert leak
+              ^
+        27 xopen("CE_template.hoc")
+    3 nrniv: RegularSpiking_CeM is not a template
+3  in function_CreateEachType.hoc near line 4
+3  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        3 xopen("function_C...")
+      3 execute1("{xopen("fu...")
+    3 load_file("function_C...")
+  3 xopen("function_M...")
+and others
+28 nrniv: syntax error
+28  in CE_template.hoc near line 51
+28  			insert leak
+              ^
+        28 xopen("CE_template.hoc")
+      28 execute1("{xopen("CE...")
+    28 load_file("CE_template.hoc")
+7 nrniv: RegularSpiking_CeM is not a template
+7  in function_CreateEachType.hoc near line 4
+7  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        7 xopen("function_C...")
+      7 execute1("{xopen("fu...")
+    7 load_file("function_C...")
+  7 xopen("function_M...")
+and others
+  33 execute1("{xopen("CE...")
+    33 load_file("CE_template.hoc")
+  33 xopen("function_M...")
+and others
+9 nrniv: RegularSpiking_CeM is not a template
+9  in function_CreateEachType.hoc near line 4
+9  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        9 xopen("function_C...")
+      9 execute1("{xopen("fu...")
+    9 load_file("function_C...")
+  9 xopen("function_M...")
+and others
+)
+    38 load_file("CE_template.hoc")
+  38 xopen("function_M...")
+and others
+14 nrniv: syntax error
+14  in CE_template.hoc near line 51
+14  			insert leak
+              ^
+        14 xopen("CE_template.hoc")
+      14 execute1("{xopen("CE...")
+    14 load_file("CE_template.hoc")
+  14 xopen("function_M...")
+and others
+24 nrniv: RegularSpiking_CeM is not a template
+24  in function_CreateEachType.hoc near line 4
+24  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                             "function_C...")
+      15 execute1("{xopen("fu...")
+    15 load_file("function_C...")
+  15 xopen("function_M...")
+and others
+  27 execute1("{xopen("CE...")
+    27 load_file("CE_template.hoc")
+  27 xopen("function_M...")
+and others
+2 execute1("{xopen("fu...")
+    2 load_file("function_C...")
+  2 xopen("function_M...")
+and others
+  28 xopen("function_M...")
+and others
+4 nrniv: syntax error
+4  in CE_template.hoc near line 51
+4  			insert leak
+              ^
+        4 xopen("CE_template.hoc")
+  30 nrniv: RegularSpiking_CeM is not a template
+30  in function_CreateEachType.hoc near line 4
+30  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        30 xopen("function_C...")
+      30 execute1("{xopen("fu...")
+    30 load_file("function_C..."    4 execute1("{xopen("CE...")
+    4 load_file("CE_template.hoc")
+  4 xopen("function_M...")
+and others
+37 nrniv: RegularSpiking_CeM is not a template
+37  in function_CreateEachType.hoc near line 4
+37  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                 14 nrniv: RegularSpiking_CeM is not a template
+14  in function_CreateEachType.hoc near line 4
+14  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                    ^
+        24 xopen("function_C...")
+      24 execute1("{xopen("fu...")
+    24 load_file("function_C..."           ^
+        14 xopen("function_C...")
+    )
+  30 xopen("function_M...")
+and others
+4 nrniv: RegularSpiking_CeM is not a template
+4  in function_CreateEachType.hoc near line 4
+4  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                               14 execute1("{xopen("fu...")
+    14 load_file("function_C...")
+  14 xopen("function_M...")
+and others
+23 nrniv: syntax error
+23  in CE_template.hoc near line 51
+23  			insert leak
+                        )
+  24 xopen("function_M...")
+and others
+                    ^
+        37 xopen("function_C...")
+      37 execute1("{xopen("fu...")
+    37 load_file("function_C...")
+  37 xopen("function_M...")
+and others
+      ^
+        39 nrniv: syntax error
+39  in CE_template.hoc near line 51
+39  			insert leak
+              ^
+4 xopen("function_C...")
+      4 execute1("{xopen("fu...")
+              ^
+4 load_file("function_C...")
+  4 xopen("function_M...")
+and others
+        39 xopen("CE_template.hoc")
+            23 xopen("CE_template.hoc")
+      23 execute1("{xopen("CE...")
+    39 execute1("{xopen("CE...")
+    39 load_file("CE_template.hoc")
+    23 load_file("CE_template.hoc")
+  23 xopen("function_M...")
+and others
+39 xopen("function_M...")
+and others
+21 nrniv: RegularSpiking_CeM is not a template
+21  in function_CreateEachType.hoc near line 4
+21  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                  29 nrniv: RegularSpiking_CeM is not a template
+29  in function_CreateEachType.hoc near line 4
+29  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        21 xopen("function_C...")
+                  ^
+        29 xopen("function_C...")
+      29 execute1(21 execute1("{xopen("fu...")
+    21 load_file("function_C...")
+  21 xopen("function_M...")
+and others
+27 nrniv: RegularSpiking_CeM is not a template
+27  in function_CreateEachType.hoc near line 4
+27  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+        "{xopen("fu...")
+    29 load_file("function_C...")
+  29 xopen("function_M...")
+and others
+                   28 nrniv: RegularSpiking_CeM is not a template
+28  in function_CreateEachType.hoc near line 4
+28  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                         33 nrniv: RegularSpiking_CeM is not a template
+33  in function_CreateEachType.hoc near line 4
+33  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                   38 nrniv: RegularSpiking_CeM is not a template
+38  in function_CreateEachType.hoc near line 4
+38  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                         ^
+        27 xopen("function_C...")
+      27 execute1("{xopen("fu...")
+    27 load_file("function_C...")
+       ^
+        28 xopen("function_C...")
+      28 execute1("{xopen("fu...")
+    28 load_file("function_C...")
+                                   27 xopen("function_M...")
+and others
+  28 xopen("function_M...")
+and others
+         ^
+        33 xopen("function_C...")
+       ^
+        38 xopen("function_C...")
+          33 execute1("{xopen("fu...")
+    33 load_file("function_C...")
+  33 xopen(  38 execute1("{xopen("fu...")
+    38 load_file("function_C...")
+  38 xopen("function_M...")
+and others
+"function_M...")
+and others
+39 nrniv: RegularSpiking_CeM is not a template
+39  in function_CreateEachType.hoc near line 4
+39  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+                                              ^
+        39 xopen("function_C..."23 nrniv: RegularSpiking_CeM is not a template
+23  in function_CreateEachType.hoc near line 4
+23  	if(i==0) {CellObj = new RegularSpiking_CeM(j)}
+  )
+      39 execute1("{xopen("fu...")
+    39 load_file("function_C...")
+  39 xopen("function_M...")
+and others
+                                            ^
+        23 xopen("function_C...")
+      23 execute1("{xopen("fu...")
+    23 load_file("function_C...")
+  23 xopen("function_M...")
+and others
+5 nrniv: laf2CeM is not a template
+5  in function_CreateSynapses.hoc near line 3
+5  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                        7 nrniv: laf2CeM is not a template
+7  in function_CreateSynapses.hoc near line 3
+7  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        7 xopen("function_C...")
+      7 execute1("{xopen("fu...")
+10 nrniv: laf2CeM is not a template
+10  in function_CreateSynapses.hoc near line 3
+10  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        10 xopen("function_C...")
+      10 execute1("{xopen("fu...")
+    10 load_file("function_C...")
+  10 xopen("function_C...")
+and others
+1 nrniv: laf2CeM is not a template
+1  in function_CreateSynapses.hoc near line 3
+1  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        1 xopen("function_C...")
+      1 execute1("{xopen("fu...")
+    1 load_file("function_C...")
+  1 xopen("function_C...")
+and others
+                 ^
+        5 xopen("function_C...")
+      5 execute1("{xopen("fu...")
+    5 load_file("function_C...")
+  5 xopen("function_C...")
+and others
+    7 load_file("function_C...")
+  7 xopen("function_C...")
+and others
+8 nrniv: laf2CeM is not a template
+8  in function_CreateSynapses.hoc near line 3
+8  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        8 xopen("function_C...")
+      8 execute1("{xopen("fu...")
+    8 load_file("function_C...")
+  8 xopen("function_C...")
+and others
+8 nrniv: Segmentation violation
+8  in function_CreateSynapses.hoc near line 18
+8  InputsynList = new List()
+            ^
+      9 nrniv: laf2CeM is not a template
+9  in function_CreateSynapses.hoc near line 3
+9  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        9 xopen("function_C...")
+      9 execute1("{xopen("fu...")
+    9 load_file("function_C...")
+  9 xopen("function_C...")
+and others
+16 nrniv: laf2CeM is not a template
+16  in function_CreateSynapses.hoc near line 3
+16  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        16 xopen("function_C...")
+      16 execute1("{xopen("fu...")
+    16 load_file("function_C...")
+  16 xopen("function_C...")
+and others
+16 nrniv: Segmentation violation
+16  in function_CreateSynapses.hoc near line 18
+16  InputsynList = new List()
+            ^
+        16 xopen("function_C...")
+      16 execute1("{xopen("fu...")
+    16 load_file("function_C...")
+  16 xopen("function_L...")
+and others
+18 nrniv: laf2CeM is not a template
+18  in function_CreateSynapses.hoc near line 3
+18  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        18 xopen("function_C...")
+      18 execute1("{xopen("fu...")
+    18 load_file("function_C...")
+  18 xopen("function_C...")
+and others
+18 nrniv: Segmentation violation
+18  in function_CreateSynapses.hoc near line 18
+18  InputsynList = new List()
+            ^
+        18 xopen("function_C...")
+      18 execute1("{xopen("fu...")
+    18 load_file("function_C...")
+  18 xopen("function_L...")
+and others
+0 nrniv: laf2CeM is not a template
+0  in function_CreateSynapses.hoc near line 3
+0  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        0 xopen("function_C...")
+      0 execute1("{xopen("fu...")
+    0 load_file("function_C...")
+  0 xopen("function_C...")
+and others
+0 nrniv: Segmentation violation
+0  in function_CreateSynapses.hoc near line 18
+1 nrniv: Segmentation violation
+1  in function_CreateSynapses.hoc near line 18
+1  InputsynList = new List()
+            ^
+        1 xopen("function_C...")
+      1 execute1("{xopen("fu...")
+    1 load_file("function_C...")
+  1 xopen("function_L...")
+and others
+3 nrniv: laf2CeM is not a template
+3  in function_CreateSynapses.hoc near line 3
+3  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        3 xopen("function_C...")
+      3 execute1("{xopen("fu...")
+    3 load_file("function_C...")
+  3 xopen("function_C...")
+and others
+5 nrniv: Segmentation violation
+5  in function_CreateSynapses.hoc near line 18
+5  InputsynList = new List()
+            ^
+        5 xopen("function_C...")
+      5 execute1("{xopen("fu...")
+    5 load_file("function_C...")
+  5 xopen("function_L...")
+and others
+6 nrniv: laf2CeM is not a template
+6  in function_CreateSynapses.hoc near line 3
+6  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        6 xopen("function_C...")
+      6 execute1("{xopen("fu...")
+    6 load_file("function_C...")
+  6 xopen("function_C...")
+and others
+6 nrniv: Segmentation violation
+6  in function_CreateSynapses.hoc near line 18
+6  InputsynList = new List()
+            ^
+        6 xopen("function_C...")
+      6 execute1("{xopen("fu...")
+    6 load_file("function_C...")
+  6 xopen("function_L...")
+and others
+  8 xopen("function_C...")
+      8 execute1("{xopen("fu...")
+    8 load_file("function_C...")
+  8 xopen("function_L...")
+and others
+9 nrniv: Segmentation violation
+9  in function_CreateSynapses.hoc near line 18
+9  InputsynList = new List()
+            ^
+        9 xopen("function_C...")
+      9 execute1("{xopen("fu...")
+    9 load_file("function_C...")
+  9 xopen("function_L...")
+and others
+10 nrniv: Segmentation violation
+10  in function_CreateSynapses.hoc near line 18
+10  InputsynList = new List()
+            ^
+        10 xopen("function_C...")
+      10 execute1("{xopen("fu...")
+    10 load_file("function_C...")
+  10 xopen("function_L...")
+and others
+11 nrniv: laf2CeM is not a template
+11  in function_CreateSynapses.hoc near line 3
+11  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        11 xopen("function_C...")
+      11 execute1("{xopen("fu...")
+    11 load_file("function_C...")
+  11 xopen("function_C...")
+and others
+11 nrniv: Segmentation violation
+11  in function_CreateSynapses.hoc near line 18
+11  InputsynList = new List()
+            ^
+        11 xopen("function_C...")
+      11 execute1("{xopen("fu...")
+    11 load_file("function_C...")
+  11 xopen("function_L...")
+and others
+12 nrniv: laf2CeM is not a template
+12  in function_CreateSynapses.hoc near line 3
+12  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        12 xopen("function_C...")
+      12 execute1("{xopen("fu...")
+    12 load_file("function_C...")
+  12 xopen("function_C...")
+and others
+12 nrniv: Segmentation violation
+12  in function_CreateSynapses.hoc near line 18
+12  InputsynList = new List()
+            ^
+        12 xopen("function_C...")
+      12 execute1("{xopen("fu...")
+    12 load_file("function_C...")
+  12 xopen("function_L...")
+and others
+13 nrniv: laf2CeM is not a template
+13  in function_CreateSynapses.hoc near line 3
+13  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        13 xopen("function_C...")
+      13 execute1("{xopen("fu...")
+    13 load_file("function_C...")
+  13 xopen("function_C...")
+and others
+17 nrniv: laf2CeM is not a template
+17  in function_CreateSynapses.hoc near line 3
+17  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        17 xopen("function_C...")
+      17 execute1("{xopen("fu...")
+    17 load_file("function_C...")
+  17 xopen("function_C...")
+and others
+17 nrniv: Segmentation violation
+17  in function_CreateSynapses.hoc near line 18
+17  InputsynList = new List()
+            ^
+        17 xopen("function_C...")
+      17 execute1("{xopen("fu...")
+    17 load_file("function_C...")
+  17 xopen("function_L...")
+and others
+0  InputsynList = new List()
+            ^
+        0 xopen("function_C...")
+      0 execute1("{xopen("fu...")
+    0 load_file("function_C...")
+  0 xopen("function_L...")
+and others
+3 nrniv: Segmentation violation
+3  in function_CreateSynapses.hoc near line 18
+3  InputsynList = new List()
+            ^
+        3 xopen("function_C...")
+      3 execute1("{xopen("fu...")
+    3 load_file("function_C...")
+  7 nrniv: Segmentation violation
+7  in function_CreateSynapses.hoc near line 18
+7  InputsynList = new List()
+            ^
+        7 xopen("function_C...")
+      7 execute1("{xopen("fu...")
+    7 load_file("function_C...")
+  7 xopen("function_L...")
+and others
+13 nrniv: Segmentation violation
+13  in function_CreateSynapses.hoc near line 18
+13  InputsynList = new List()
+            ^
+        13 xopen("function_C...")
+      13 execute1("{xopen("fu...")
+    13 load_file("function_C...")
+  13 xopen("function_L...")
+and others
+3 xopen("function_L...")
+and others
+31 nrniv: laf2CeM is not a template
+31  in function_CreateSynapses.hoc near line 3
+31  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        31 xopen("function_C...")
+      31 execute1("{xopen("fu...")
+    31 load_file("function_C...")
+  31 xopen("function_C...")
+and others
+21 nrniv: laf2CeM is not a template
+21  in function_CreateSynapses.hoc near line 3
+21  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+          29 nrniv: laf2CeM is not a template
+29  in function_CreateSynapses.hoc near line 3
+29  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                 39 nrniv: laf2CeM is not a template
+39  in function_CreateSynapses.hoc near line 3
+39  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        39 xopen("function_C...")
+                                 ^
+        21 xopen("function_C...")
+      21 execute1("{xopen("fu...")
+  27 nrniv: laf2CeM is not a template
+27  in function_CreateSynapses.hoc near line 3
+27  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                       28 nrniv: laf2CeM is not a template
+28  in function_CreateSynapses.hoc near line 3
+28  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                ^
+        29 xopen("function_C...")
+      29 execute1("{xopen("fu...")
+    29 load_file("function_C...")
+  29 xopen("function_C..."30 nrniv: laf2CeM is not a template
+30  in function_CreateSynapses.hoc near line 3
+30  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+      32 nrniv: laf2CeM is not a template
+32  in function_CreateSynapses.hoc near line 3
+32  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        32 xopen(    39 execute1("{xopen("fu...")
+    39 load_file("function_C...")
+  39 xopen("function_C...")
+and others
+  21 load_file("function_C...")
+  21 xopen("function_C...")
+and others
+22 nrniv: laf2CeM is not a template
+22  in function_CreateSynapses.hoc near line 3
+22  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        22 xopen("function_C...")
+      22 execute1("{xopen("fu...")
+    22 load_file("function_C...")
+  22 xopen("function_C...")
+and others
+25 nrniv: laf2CeM is not a template
+25  in function_CreateSynapses.hoc near line 3
+25  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        25 xopen("function_C...")
+      25 execute1("{xopen("fu...")
+    25 load_file("function_C...")
+  25 xopen("function_C...")
+and others
+  ^
+        27 xopen("function_C...")
+      27 execute1("{xopen("fu...")
+    27 load_file("function_C...")
+  27 xopen("function_C...")
+and others
+                 ^
+        28 xopen("function_C...")
+      28 execute1("{xopen("fu...")
+    28 load_file("function_C...")
+  28 xopen("function_C...")
+and others
+)
+and others
+  30 xopen("function_C...")
+      30 execute1("{xopen("fu...")
+    30 load_file("function_C...")
+  30 xopen("function_C...")
+and others
+31 nrniv: Segmentation violation
+31  in function_CreateSynapses.hoc near line 18
+31  InputsynList = new List()
+            ^
+        31 xopen("function_C...")
+      31 execute1("{xopen("fu...")
+    31 load_file("function_C...")
+  31 xopen("function_L...")
+and others
+"function_C...")
+      32 execute1("{xopen("fu...")
+    32 load_file("function_C...")
+  32 xopen("function_C...")
+and others
+34 nrniv: laf2CeM is not a template
+34  in function_CreateSynapses.hoc near line 3
+34  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        34 xopen("function_C..."35 nrniv: laf2CeM is not a template
+35  in function_CreateSynapses.hoc near line 3
+35  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        35 xopen("function_C...")
+      35 execute1("{xopen("fu...")
+    35 load_file("function_C...")
+  35 xopen("function_C...")
+and others
+37 nrniv: laf2CeM is not a template
+37  in function_CreateSynapses.hoc near line 3
+37  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        37 xopen("function_C...")
+      37 execute1(20 nrniv: laf2CeM is not a template
+20  in function_CreateSynapses.hoc near line 3
+20  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        20 xopen("function_C...")
+      20 execute1("{xopen("fu...")
+    20 load_file("function_C...")
+  20 xopen("function_C...")
+and others
+)
+      34 execute1("{xopen("fu...")
+    34 load_file("function_C...")
+  34 xopen("function_C...")
+and others
+"{xopen("fu...")
+    37 load_file("function_C...")
+  37 xopen("function_C...")
+and others
+21 nrniv: Segmentation violation
+21  in function_CreateSynapses.hoc near line 18
+21  InputsynList = new List()
+            ^
+        21 xopen("function_C...")
+    23 nrniv: laf2CeM is not a template
+23  in function_CreateSynapses.hoc near line 3
+23  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                      27 nrniv: Segmentation violation
+27  in function_CreateSynapses.hoc near line 18
+27  InputsynList = new List()
+            ^
+        27 xopen("function_C...")
+      27 execute1("{xopen("fu...")
+    27 load_file("function_C...")
+  27 xopen("function_L...")
+and others
+39 nrniv: Segmentation violation
+39  in function_CreateSynapses.hoc near line 18
+39  InputsynList = new List()
+            ^
+        39 xopen("function_C...")
+      39 execute1("{xopen("fu...")
+    39 load_file("function_C...")
+  39 xopen("function_L...")
+and others
+  21 execute1("{xopen("fu...")
+    21 load_file("function_C...")
+  21 xopen("function_L...")
+and others
+22 nrniv: Segmentation violation
+22  in function_CreateSynapses.hoc near line 18
+22  InputsynList = new List()
+            ^
+        22 xopen("function_C...")
+      22 execute1("{xopen("fu...")
+                       ^
+        25 nrniv: Segmentation violation
+25  in function_CreateSynapses.hoc near line 18
+25  InputsynList = new List()
+            ^
+        25 xopen("function_C...")
+      25 execute1("{xopen("fu...")
+    25 load_file(29 nrniv: Segmentation violation
+29  in function_CreateSynapses.hoc near line 18
+29  InputsynList = new List()
+            ^
+        29 xopen("function_C...")
+    32 nrniv: Segmentation violation
+32  in function_CreateSynapses.hoc near line 18
+32  InputsynList = new List()
+            ^
+        32 xopen("function_C...")
+      32 execute1("{xopen("fu...")
+    32 load_file("function_C...")
+  32 xopen("function_L...")
+and others
+22 load_file("function_C...")
+  22 xopen("function_L...")
+and others
+23 xopen("function_C...")
+      23 execute1("{xopen("fu...")
+    23 load_file("function_C...")
+  23 xopen("function_C...")
+  25 xopen("function_L...")
+and others
+28 nrniv: Segmentation violation
+28  in function_CreateSynapses.hoc near line 18
+28  InputsynList = new List()
+            ^
+        28 xopen("function_C...")
+      28 execute1("{xopen("fu...")
+    28 load_file("function_C...")
+  28 xopen("function_L...")
+  29 execute1("{xopen("fu...")
+    29 load_file("function_C...")
+  29 xopen("function_L...")
+and others
+30 nrniv: Segmentation violation
+30  in function_CreateSynapses.hoc near line 18
+30  InputsynList = new List()
+            ^
+        30 xopen("function_C...")
+      30 execute1("{xopen("fu...")
+    30 load_file("function_C...")
+  30 xopen("function_L...")
+and others
+20 nrniv: Segmentation violation
+20  in function_CreateSynapses.hoc near line 18
+20  InputsynList = new List()
+            ^
+        "function_C...")
+and others
+and others
+35 nrniv: Segmentation violation
+35  in function_CreateSynapses.hoc near line 18
+35  InputsynList = new List()
+            ^
+        35 xopen("function_C...")
+      35 execute1("{xopen("fu...")
+    35 load_file("function_C...")
+  35 xopen("function_L...")
+and others
+20 xopen("function_C...")
+      20 execute1("{xopen("fu...")
+    20 load_file("function_C...")
+  20 xopen("function_L...")
+and others
+34 nrniv: Segmentation violation
+34  in function_CreateSynapses.hoc near line 18
+34  InputsynList = new List()
+   37 nrniv: Segmentation violation
+37  in function_CreateSynapses.hoc near line 18
+37  InputsynList = new List()
+              ^
+           ^
+            34 xopen("function_C...")
+      34 execute1("{xopen("fu...")
+    34 load_file(37 xopen("function_C...")
+      37 execute1("{xopen("fu...")
+    37 load_file("function_C...")
+"function_C...")
+  34 xopen("function_L...")
+and others
+  37 xopen("function_L...")
+and others
+24 nrniv: laf2CeM is not a template
+24  in function_CreateSynapses.hoc near line 3
+24  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                       26 nrniv: laf2CeM is not a template
+26  in function_CreateSynapses.hoc near line 3
+26  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        26 xopen("function_C...")
+      26 execute1(                  ^
+        24 xopen("function_C...")
+      24 execute1("{xopen("fu...")
+    24 load_file("function_C...")
+  24 xopen("{xopen("fu...")
+    26 load_file("function_C...")
+  26 xopen("function_C...")
+and others
+"function_C...")
+and others
+23 nrniv: Segmentation violation
+23  in function_CreateSynapses.hoc near line 18
+23  InputsynList = new List()
+            ^
+        23 xopen("function_C...")
+      23 execute1("{xopen("fu...")
+    23 load_file("function_C...")
+  23 xopen("function_L...")
+26 nrniv: Segmentation violation
+26  in function_CreateSynapses.hoc near line 18
+26  InputsynList = new List()
+            ^
+        26 xopen("function_C...")
+      26 execute1("{xopen("fu...")
+    26 load_file("function_C...")
+and others
+24 nrniv: Segmentation violation
+24  in function_CreateSynapses.hoc near line 18
+24  InputsynList = new List()
+            ^
+        24 xopen("function_C...")
+      24 execute1("{xopen("fu...")
+    24 load_file("function_C...")
+  24 xopen("function_L...")
+and others
+  26 xopen("function_L...")
+and others
+38 nrniv: laf2CeM is not a template
+38  in function_CreateSynapses.hoc near line 3
+38  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        38 xopen("function_C...")
+      38 execute1("{xopen("fu...")
+    38 load_file("function_C...")
+  38 xopen("function_C...")
+33 nrniv: laf2CeM is not a template
+33  in function_CreateSynapses.hoc near line 3
+33  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        33 xopen("function_C...")
+      36 nrniv: laf2CeM is not a template
+36  in function_CreateSynapses.hoc near line 3
+36  	if(i==1) {SynObj = new laf2CeM(0.500000)}
+                                         ^
+        36 xopen("function_C...")
+      36 execute1("{xopen("fu...")
+    36 load_file("function_C...")
+  36 xopen("function_C...")
+and others
+36 nrniv: Segmentation violation
+36  in function_CreateSynapses.hoc near line 18
+36  InputsynList = new List()
+            ^
+        36 xopen("function_C...")
+      36 execute1("{xopen("fu...")
+    36 load_file("function_C...")
+  36 xopen("function_L...")
+and others
+and others
+38 nrniv: Segmentation violation
+38  in function_CreateSynapses.hoc near line 18
+38  InputsynList = new List()
+            ^
+        38 xopen("function_C...")
+      38 execute1("{xopen("fu...")
+    38 load_file("function_C...")
+  38 xopen("function_L...")
+and others
+33 execute1("{xopen("fu...")
+    33 load_file("function_C...")
+  33 xopen("function_C...")
+and others
+33 nrniv: Segmentation violation
+33  in function_CreateSynapses.hoc near line 18
+33  InputsynList = new List()
+            ^
+        33 xopen("function_C...")
+      33 execute1("{xopen("fu...")
+    33 load_file("function_C...")
+  33 xopen("function_L...")
+and others
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 22232 RUNNING AT prod-0038
+=   EXIT CODE: 11
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+[proxy:0:1@prod-0039] HYD_pmcd_pmip_control_cmd_cb (pm/pmiserv/pmip_cb.c:887): assert (!closed) failed
+[proxy:0:1@prod-0039] HYDT_dmxu_poll_wait_for_event (tools/demux/demux_poll.c:76): callback returned error status
+[proxy:0:1@prod-0039] main (pm/pmiserv/pmip.c:202): demux engine error waiting for event
+srun: error: prod-0039: task 1: Exited with exit code 7
+[mpiexec@prod-0038] HYDT_bscu_wait_for_completion (tools/bootstrap/utils/bscu_wait.c:76): one of the processes terminated badly; aborting
+[mpiexec@prod-0038] HYDT_bsci_wait_for_completion (tools/bootstrap/src/bsci_wait.c:23): launcher returned error waiting for completion
+[mpiexec@prod-0038] HYD_pmci_wait_for_completion (pm/pmiserv/pmiserv_pmci.c:218): launcher returned error waiting for completion
+[mpiexec@prod-0038] main (ui/mpich/mpiexec.c:340): process manager error waiting for completion

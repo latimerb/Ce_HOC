@@ -1,0 +1,282 @@
+Starting CE HOC Model at Wed Jan 17 21:58:02 CET 2018
+
+Currently Loaded Modules:
+  1) slurm/17.02.2 (S)
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+Main CE HOC file starting at Wed Jan 17 21:58:02 CET 2018
+numprocs=40
+NEURON -- VERSION 7.5 master (6b4c19f) 2017-09-25
+Duke, Yale, and the BlueBrain Project -- Copyright 1984-2016
+See http://neuron.yale.edu/neuron/credits
+
+Additional mechanisms from files
+ BAer2CeLPKCDm.mod BAer2CeLPKCDp.mod BAer2CeM.mod BAf2CeLPKCDm.mod BAf2CeLPKCDp.mod BAf2CeM.mod BAnor2CeLPKCDm.mod BAnor2CeLPKCDp.mod BAnor2CeM.mod CE_cal.mod CE_capool.mod CE_cat.mod CE_ia.mod CE_ih.mod CE_Ihva.mod CE_im.mod CE_kdr.mod CE_leak.mod CeLPKCDm2CeLPKCDm.mod CeLPKCDm2CeLPKCDp.mod CeLPKCDm2CeM.mod CeLPKCDp2CeLPKCDm.mod CeLPKCDp2CeLPKCDp.mod CeLPKCDp2CeM.mod CeM2CeM.mod CE_na.mod CE_sahp.mod currentclamp.mod function_TMonitor.mod ITCd2CeLPKCDm.mod ITCd2CeLPKCDp.mod ITCv2CeM.mod LAer2CeLPKCDm.mod LAer2CeLPKCDp.mod LAer2CeM.mod LAf2CeLPKCDm.mod LAf2CeLPKCDp.mod LAf2CeM.mod LAnor2CeLPKCDm.mod LAnor2CeLPKCDp.mod LAnor2CeM.mod PVT2CeLPKCDm.mod PVT2CeLPKCDp.mod shock.mod
+		1 
+	1 
+1 
+	1 
+	1 
+		1 
+		1 
+	1 
+		1 
+	1 
+1 
+	1 
+1 
+	1 
+	1 
+1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	1 	1 
+
+	137 
+	137 
+	1 
+	137 
+	1 
+	137 
+	137 	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+		137 
+137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	1 
+	137 
+	137 
+	1 
+	1 
+	137 
+	137 
+	1 
+	137 
+	137 
+	137 
+	1 
+	137 
+	137 
+	137 
+	137 
+	1 
+	1 
+	1 
+	137 
+	1 
+	137 
+	1 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	137 
+	1 
+	137 
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+Internal Connections Complete
+0.000000 percent is done!
+1.000000 percent is done!
+2.000000 percent is done!
+3.000000 percent is done!
+4.000000 percent is done!
+5.000000 percent is done!
+6.000000 percent is done!
+7.000000 percent is done!
+8.000000 percent is done!
+9.000000 percent is done!
+10.000000 percent is done!
+11.000000 percent is done!
+12.000000 percent is done!
+13.000000 percent is done!
+14.000000 percent is done!
+15.000000 percent is done!
+16.000000 percent is done!
+17.000000 percent is done!
+18.000000 percent is done!
+19.000000 percent is done!
+20.000000 percent is done!
+21.000000 percent is done!
+22.000000 percent is done!
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 3794.0 ON prod-0011 CANCELLED AT 2018-01-17T22:58:27 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 3794 ON prod-0011 CANCELLED AT 2018-01-17T22:58:27 DUE TO TIME LIMIT ***

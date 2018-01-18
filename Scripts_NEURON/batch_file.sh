@@ -3,9 +3,8 @@
 #  SBATCH CONFIG
 #-------------------------------------------------------------------------------
 ## resources
-#SBATCH --partition normal
-#SBATCH --nodes=10
-#SBATCH -A TG-CCR140046
+##SBATCH --partition normal
+#SBATCH --nodes=2
 #SBATCH --ntasks-per-node=20  # don't trust SLURM to divide the cores evenly
 #SBATCH --cpus-per-task=1  # cores per task; set to one if using MPI
 
@@ -14,31 +13,31 @@
 
 
 ## labels and outputs
-#SBATCH --job-name=CE_HOC_AUTO
+#SBATCH --job-name=CE_HOC
 #SBATCH --output=results-CE-Auto-%j.out  # %j is the unique jobID
 ## notifications
-#SBATCH --mail-user=latimerb@missouri.edu  # email address for notifications
-#SBATCH --mail-type=END,FAIL  # which type of notifications to send
+##SBATCH --mail-user=latimerb@missouri.edu  # email address for notifications
+##SBATCH --mail-type=END,FAIL  # which type of notifications to send
 #-------------------------------------------------------------------------------
 
 echo "Starting CE HOC Model at $(date)"
 
 ## Commands here run only on the first core of the first node
 # Load needed HOC modules
-#module load matlab/2017a
-#module load intel/intel-2016-update2
-#module load nrn/nrn-mpi-7.4
-#module load openmpi/openmpi-2.0.0
+##module load matlab/2017a
+##module load intel/intel-2016-update2
+##module load nrn/nrn-mpi-7.4
+#module load openmpi_gnu/2.0.0
 module list
 
 ## Run matlab non-interactively
-#echo "Pre-Processing Matlab Scripts starting at $(date)"
-#srun -N 1 -n 1 -c 1 --mem 4G matlab -nodesktop -nosplash -nodisplay -r "run('../Scripts_MATLAB/Main_ModelGen.m');exit"
+##echo "Pre-Processing Matlab Scripts starting at $(date)"
+##srun -N 1 -n 1 -c 1 --mem 4G matlab -nodesktop -nosplash -nodisplay -r "run('../Scripts_MATLAB/Main_ModelGen.m');exit"
 
 # MPI flag for explicit safety
 export PSM_RANKS_PER_CONTEXT=2
 
-srun -N 1 -n 1 nrnivmodl
+#srun -N 1 -n 1 nrnivmodl
 ## Commands prefixed with mpirun or srun will run on every core
 echo "Main CE HOC file starting at $(date)"
 mpirun nrniv -mpi main.hoc
@@ -49,7 +48,7 @@ mpirun nrniv -mpi main.hoc
 
 #echo "Program complete... $(date)"
 
-#module unload matlab/matlab-R2016a
-#module unload intel/intel-2016-update2
-#module unload nrn/nrn-mpi-7.4
-#module unload openmpi/openmpi-2.0.0
+##module unload matlab/matlab-R2016a
+##module unload intel/intel-2016-update2
+##module unload nrn/nrn-mpi-7.4
+##module unload openmpi/openmpi-2.0.0
